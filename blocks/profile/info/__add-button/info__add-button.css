@@ -1,0 +1,7 @@
+.info__add-button {
+    display: flex;
+    width: 150px;
+    height: 50px;
+    border: 1px solid white;
+    justify-self: flex-end; Red error b/c this shit isn't working!!!
+}

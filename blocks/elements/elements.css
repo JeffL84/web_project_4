@@ -1,0 +1,32 @@
+
+@import url("./element/element.css");
+@import url("./element/__image/element__image.css");
+@import url("./element/__bar/element__bar.css");
+@import url("./element/__name/element__name.css");
+@import url("./element/__heart-icon/element__heart-icon.css");
+
+.elements {
+    max-width: 882px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 18px;
+    grid-row-gap: 20px;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 850px) {
+
+.elements {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .elements {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    }

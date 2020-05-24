@@ -1,0 +1,13 @@
+.section-width {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 882px;
+    width: calc(100% - 398px);
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+    .section-width {
+        width: calc(100% - 38px);
+    }
+}

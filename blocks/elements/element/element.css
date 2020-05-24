@@ -1,0 +1,9 @@
+.element {
+    background-color: white;
+    border-radius: 10px;
+    object-fit: contain;
+    max-width: 100%;
+    color: black;
+    box-sizing: border-box;
+  
+}
