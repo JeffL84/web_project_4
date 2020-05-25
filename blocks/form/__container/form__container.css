@@ -1,0 +1,12 @@
+.form__container {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 330px;
+    background-color: white;
+    position: fixed;
+    margin-left: calc(50% - 215px);
+    top: 195px;
+    color: black;
+    border-radius: 10px;
+}

@@ -1,0 +1,7 @@
+.form__close-button {
+    position: fixed;
+    height: 41px;
+    width: 41px;
+    top: 155px;
+    left: calc(50vw + 210px);
+}

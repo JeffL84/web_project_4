@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel = "stylesheet" href = "./pages/index.css">
-    <script src = "./script.js"></script>
+    
 </head>
 <body class="page">
+
+    <section class = "form">
+
+        <form class = "form__container">
+
+            <h2 class = "form__title">Edit profile</h2>
+            <input class = "form__name" type = "text" id = "name" name = "name" value = "Jacques Cousteau">
+            <input class = "form__description" type = "text" id = "description" name = "description" value = "Explorer">
+            <button class = "form__save-button" type = "submit">Save</button>
+            <img class = "form__close-button" src = "./images/Close Icon.png" alt = "Close X">
+
+        </form>
+
+    </section>
 
     <header class="header section-width">
         
@@ -28,15 +42,17 @@
         <div class = "info">
             <div class = "info__first-line">
             <h1 class = "info__name">Jacques Cousteau</h1>
-            <div class = "info__edit-button"><img class ="info__button-image" src = "images/pencil.png" alt = "Pencil"></div>
+            <div class = "info__edit-button hover" onclick = "formshow()"><img class ="info__button-image" src = "images/pencil.png" alt = "Pencil"></div>
             </div>
             <p class = "info__description">Explorer</p>
 
         </div>
 
-        <div class = "info__add-button"><img class = "info__add-button-symbol" src = "./images/Plus sign.png" alt = "Plus Sign"></div>
+        <div class = "info__add-button hover"><img class = "info__add-button-symbol" src = "./images/Plus sign.png" alt = "Plus Sign"></div>
 
     </section>
+
+
 
     <section class="elements section-width">
 
@@ -92,9 +108,16 @@
 
     </main>
 
-    <footer class="footer"></footer>
+    <footer class="footer section-width">
+
+        <img class = "footer__trademark" src = "./images/© 2020 Around The U.S. (1).png" alt = "Trademark">
+
+    </footer>
 
 </body>
+
+<script src = "./script.js"></script>
+
 </html>
 
     

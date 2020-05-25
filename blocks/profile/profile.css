@@ -2,6 +2,7 @@
 
 
 .profile {
+    font-family: 'Inter', Arial, sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;

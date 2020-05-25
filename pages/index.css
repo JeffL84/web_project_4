@@ -1,12 +1,11 @@
 @import url("../vendor/normalize.css");
+@import url("../vendor/fonts/fonts.css");
 @import url("../blocks/page/page.css");
 @import url("../blocks/header/header.css");
 @import url("../blocks/profile/profile.css");
 @import url("../blocks/profile/info/info.css");
 @import url("../blocks/section-width/section-width.css");
 @import url("../blocks/elements/elements.css");
-
-
-* {
-    border: 1px solid red;
-}
+@import url("../blocks/footer/footer.css");
+@import url("../blocks/form/form.css");
+@import url("../blocks/hover/hover.css");

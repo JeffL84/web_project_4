@@ -1,0 +1,11 @@
+@import url("./__container/form__container.css");
+@import url("./__title/form__title.css");
+@import url("./__name/form__name.css");
+@import url("./__description/form__description.css");
+@import url("./__save-button/form__save-button.css");
+@import url("./__close-button/form__close-button.css");
+
+.form {
+    font-family: 'Inter', Arial, sans-serif;
+    display: none;
+}

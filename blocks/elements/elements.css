@@ -6,6 +6,7 @@
 @import url("./element/__heart-icon/element__heart-icon.css");
 
 .elements {
+    font-family: 'Inter', Arial, sans-serif;
     max-width: 882px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
