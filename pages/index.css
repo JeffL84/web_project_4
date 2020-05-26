@@ -9,3 +9,7 @@
 @import url("../blocks/footer/footer.css");
 @import url("../blocks/form/form.css");
 @import url("../blocks/hover/hover.css");
+
+* {
+    border: 1px solid red;
+}
