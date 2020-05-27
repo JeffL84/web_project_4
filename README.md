@@ -2,8 +2,8 @@
 
 ### Overview
 
-* Figma
-* Images
+* Used HTML and CSS
+* Implemented Javascript to have a resonsive form
 
 **Figma**
 
@@ -11,6 +11,8 @@
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+Beautiful images of the country provided by Figma. 
 
-Have fun with JavaScript!
+**Accessing**
+
+You can visit my final product at this following url: https://jeffl84.github.io/web_project_4/
