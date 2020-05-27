@@ -4,8 +4,9 @@
 @import url("./__description/form__description.css");
 @import url("./__save-button/form__save-button.css");
 @import url("./__close-button/form__close-button.css");
+@import url("./__overlay/form__overlay.css");
 
 .form {
-    font-family: 'Inter', Arial, sans-serif;
     display: none;
+    z-index: 2;
 }

@@ -3,4 +3,19 @@
     margin: 0 auto;
     padding: 0;
     margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 56px;
+}
+
+@media screen and (max-width: 900px) {
+    .info__name {
+        font-style: normal; 
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 56px;
+        text-align: center;
+        max-width: 220px;;
+    }
 }

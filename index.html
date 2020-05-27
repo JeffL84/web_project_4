@@ -9,19 +9,7 @@
 </head>
 <body class="page">
 
-    <section class = "form">
 
-        <form class = "form__container">
-
-            <h2 class = "form__title">Edit profile</h2>
-            <input class = "form__name" type = "text" id = "name" name = "name" value ="" placeholder ="Jacques Cousteau">
-            <input class = "form__description" type = "text" id = "description" name = "description" value = "" placeholder = "Explorer">
-            <button class = "form__save-button" type = "submit" onclick = "formSave()">Save</button>
-            <img class = "form__close-button" onclick = "formHide()" src = "./images/Close Icon.png" alt = "Close X">
-
-        </form>
-
-    </section>
 
     <header class="header section-width">
         
@@ -43,7 +31,7 @@
         <div class = "info">
             <div class = "info__first-line">
             <h1 class = "info__name">Jacques Cousteau</h1>
-            <div class = "info__edit-button hover" onclick = "formShow()"><img class ="info__button-image" src = "images/pencil.png" alt = "Pencil"></div>
+            <div class = "info__edit-button hover" ><img class ="info__button-image" src = "images/pencil.png" alt = "Pencil"></div>
             </div>
             <p class = "info__description">Explorer</p>
 
@@ -55,7 +43,20 @@
 
     </section>
 
+    <section class = "form">
 
+        <div class = "form__overlay"></div>
+        <form class = "form__container">
+
+            <h2 class = "form__title">Edit profile</h2>
+            <input class = "form__name" type = "text" id = "name" name = "name" value ="" placeholder ="Name">
+            <input class = "form__description" type = "text" id = "description" name = "description" value = "" placeholder = "About Me">
+            <button class = "form__save-button" type = "submit">Save</button>
+            <img class = "form__close-button"  src = "./images/Close Icon.png" alt = "Close X">
+
+        </form>
+
+    </section>
 
     <section class="elements section-width">
 
@@ -117,10 +118,9 @@
 
     </footer>
 
+    <script src = "./script.js"></script>
+
 </body>
-
-<script src = "./script.js"></script>
-
 </html>
 
     

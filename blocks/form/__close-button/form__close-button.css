@@ -3,5 +3,5 @@
     height: 41px;
     width: 41px;
     top: 155px;
-    left: calc(50vw + 210px);
+    right: calc(50vw - 260px);
 }
