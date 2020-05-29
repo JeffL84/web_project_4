@@ -1,4 +1,4 @@
-.element {
+.elements__element {
     background-color: white;
     border-radius: 10px;
     object-fit: contain;
@@ -10,7 +10,7 @@
 
 @media screen and (max-width: 600px) {
 
-    .element {
+    .elements__element {
         max-width: 282px;
         margin: 0 auto;
     }
