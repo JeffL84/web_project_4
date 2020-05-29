@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
     <link rel = "stylesheet" href = "./pages/index.css">
+    <title>Around the U.S.</title>
+    
     
 </head>
 <body class="page">
@@ -13,9 +14,7 @@
 
     <header class="header section-width">
         
-        <img class = "header__vector"  src = "./images/Vector.png" alt = "Around Vector">
- 
-        <div class = "header__line"></div>
+        <img class = "header__vector"  src = "./images/headervector.svg" alt = "Around Vector">
 
     </header>
 
@@ -24,22 +23,77 @@
     <section class="profile section-width">
 
         <div class = "profile__section">
-        <div class = "avatar">
-        <img class = "avatar__image" src = "images/Jaques.jpg" alt = "Jaques Couteau">
-        </div>
+       
+        <img class = "profile__avatar" src = "images/Jaques.jpg" alt = "Jaques Couteau">
+     
 
-        <div class = "info">
-            <div class = "info__first-line">
-            <h1 class = "info__name">Jacques Cousteau</h1>
-            <div class = "info__edit-button hover" ><img class ="info__button-image" src = "images/pencil.png" alt = "Pencil"></div>
+        <div class = "profile__info">
+    
+            <h1 class = "profile__name">Jacques Cousteau</h1>
+            <button class = "profile__edit-button hover" ></button>
+            <p class = "profile__description">Explorer</p>
             </div>
-            <p class = "info__description">Explorer</p>
+            
+        </div>
 
+        </div>
+
+
+        <button class = "profile__add-button hover"></button>
+
+    </section>
+
+    
+
+    <section class="elements section-width">
+
+        <div class = "element">
+            <img class = "element__image" src = "./images/Yosemite.jpg" alt = "Yosemite">
+            <div class = "element__bar">
+            <p class = "element__name">Yosemite Valley</p>
+            <button class = "element__heart-icon hover"></button>
         </div>
         </div>
 
+        <div class = "element">
+            <img class = "element__image" src = "./images/LakeLouise.png" alt = "Lake Louise">
+            <div class = "element__bar">
+            <p class = "element__name">Lake Louise</p>
+            <button class = "element__heart-icon hover"></button>
+        </div>
+        </div>
 
-        <div class = "info__add-button hover"><img class = "info__add-button-symbol" src = "./images/Plus sign.png" alt = "Plus Sign"></div>
+        <div class = "element">
+            <img class = "element__image" src = "./images/BaldMountains.png" alt = "Bald Mountains">
+            <div class = "element__bar">
+            <p class = "element__name">Bald Mountains</p>
+            <button class = "element__heart-icon hover"></button>
+        </div>
+        </div>
+
+        <div class = "element">
+            <img class = "element__image" src = "./images/Latemar.png" alt = "Latemar">
+            <div class = "element__bar">
+            <p class = "element__name">Latemar</p>
+            <button class = "element__heart-icon hover"></button>
+        </div>
+        </div>
+
+        <div class = "element">
+            <img class = "element__image" src = "./images/VanoisNationalPark.png" alt = "Vanois">
+            <div class = "element__bar">
+            <p class = "element__name">Vanois National</p>
+            <button class = "element__heart-icon hover"></button>
+        </div>
+        </div>
+
+        <div class = "element">
+            <img class = "element__image" src = "./images/LagodiBraies.png" alt = "Lago di Braies">
+            <div class = "element__bar">
+            <p class = "element__name">Lago di Braies</p>
+            <button class = "element__heart-icon hover"></button>
+        </div>
+        </div>
 
     </section>
 
@@ -52,61 +106,9 @@
             <input class = "form__name" type = "text" id = "name" name = "name" value ="" placeholder ="Name">
             <input class = "form__description" type = "text" id = "description" name = "description" value = "" placeholder = "About Me">
             <button class = "form__save-button" type = "submit">Save</button>
-            <img class = "form__close-button"  src = "./images/Close Icon.png" alt = "Close X">
+            <button class = "form__close-button hover"></button>
 
         </form>
-
-    </section>
-
-    <section class="elements section-width">
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Yosemite.jpg" alt = "Yosemite">
-            <div class = "element__bar">
-            <p class = "element__name">Yosemite Valley</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Lake Louise.png" alt = "Lake Louise">
-            <div class = "element__bar">
-            <p class = "element__name">Lake Louise</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Bald Mountains.png" alt = "Bald Mountains">
-            <div class = "element__bar">
-            <p class = "element__name">Bald Mountains</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Latemar.png" alt = "Latemar">
-            <div class = "element__bar">
-            <p class = "element__name">Latemar</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Vanois National Park.png" alt = "Vanois">
-            <div class = "element__bar">
-            <p class = "element__name">Vanois National</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
-
-        <div class = "element">
-            <img class = "element__image" src = "./images/Lago di Braies.png" alt = "Lago di Braies">
-            <div class = "element__bar">
-            <p class = "element__name">Lago di Braies</p>
-            <img class = "element__heart-icon" src = "./images/heart.jpg" alt = "Heart icon">
-        </div>
-        </div>
 
     </section>
 
@@ -114,7 +116,7 @@
 
     <footer class="footer section-width">
 
-        <img class = "footer__trademark" src = "./images/footer.png" alt = "Trademark">
+        <p class="footer__trademark">&#169; 2020 Around The U.S. </p>
 
     </footer>
 

@@ -1,15 +1,21 @@
-@import url("./avatar/avatar.css");
+@import url("./__avatar/profile__avatar.css");
+@import url("./__info/profile__info.css");
+@import url("./__name/profile__name.css");
+@import url("./__edit-button/profile__edit-button.css");
 @import url("./__section/profile__section.css");
+@import url("./__description/profile__description.css");
+@import url("./__add-button/profile__add-button.css");
+@import url(".");
 
 
 .profile {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Arial', sans-serif;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    margin-bottom: 58px;
+    margin-bottom: 51px;
     max-width: 882px;
     width: calc(100% - 398px);
     box-sizing: border-box;
@@ -20,14 +26,14 @@
     
 .profile {   
     width: calc(100% - 198px);
-    flex-direction: column;
 }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 710px) {
     
     .profile {   
         width: calc(100% - 38px);
+        flex-direction: column;
         
     }
     }

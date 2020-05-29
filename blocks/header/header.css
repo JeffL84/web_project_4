@@ -1,14 +1,15 @@
 @import url("./__vector/header__vector.css");
-@import url("./__line/header__line.css");
 
 
 .header {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', "Arial", sans-serif;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    margin-bottom: 58px;
+    height: 74px; 
+    border-bottom: 1px solid #545454; 
     margin-top: 45px;
+    margin-bottom: 36.25px;
     max-width: 882px;
     width: calc(100% - 398px);
     box-sizing: border-box;

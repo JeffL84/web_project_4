@@ -4,4 +4,9 @@
     width: 41px;
     top: 155px;
     right: calc(50vw - 260px);
+    background-image: url("../../../images/CloseIcon.png");
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    background-position: center;
+    border: none;
 }

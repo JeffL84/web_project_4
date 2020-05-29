@@ -1,12 +1,12 @@
+@import url("./__element/elements__element.css");
+@import url("./__image/elements__image.css");
+@import url("./__bar/elements__bar.css");
+@import url("./__name/elements__name.css");
+@import url("./__heart-icon/elements__heart-icon.css");
 
-@import url("./element/element.css");
-@import url("./element/__image/element__image.css");
-@import url("./element/__bar/element__bar.css");
-@import url("./element/__name/element__name.css");
-@import url("./element/__heart-icon/element__heart-icon.css");
 
 .elements {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', "Arial", sans-serif;
     max-width: 882px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
