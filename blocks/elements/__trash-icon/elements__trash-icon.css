@@ -1,0 +1,9 @@
+.elements__trash-icon {
+    width: 21px;
+    height: 20.3px;
+    align-self: center;
+    background:  url("../../../images/trash.svg") no-repeat center bottom, url("../../../images/trashtop.svg") no-repeat center top; 
+    border: none;
+    margin-top: 18px;
+    margin-left: 249px;
+}
