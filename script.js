@@ -54,6 +54,8 @@ const createCard = (data) => {
    const cardLikeButton = cardElement.querySelector(".elements__heart-icon");
    const cardRemoveButton = cardElement.querySelector(".elements__trash-icon");
 
+   cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
+
    cardTitle.textContent = data.name;
    cardImage.style.backgroundImage = `url(${data.link})`;
 
@@ -61,19 +63,19 @@ const createCard = (data) => {
       const bigImage = imagePopup.querySelector(".big-image__picture");
       const bigImageCaption = imagePopup.querySelector(".big-image__caption");
 
-      bigImage.setAttribute("src", `url(${data.link})`);
+      bigImage.src = data.link;
       bigImageCaption.textContent = data.name;
 
       formToggle(imagePopup);
    });
 
-   cardRemoveButton.addEventListener("click", (e)=> {
-     // e.target.closest.(".elements__element").remove();
+   cardRemoveButton.addEventListener("click", (evt)=> {
+     // evt.target.closest.(".elements__element").remove();
      
    });
 
-   cardLikeButton.addEventListener("click", ()=> {
-
+   cardLikeButton.addEventListener("click", (evt)=> {
+      cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
    });
 
    return cardElement;
