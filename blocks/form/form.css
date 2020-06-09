@@ -5,6 +5,7 @@
 @import url("./__save-button/form__save-button.css");
 @import url("./__close-button/form__close-button.css");
 @import url("./__overlay/form__overlay.css");
+@import url("./__container/_type_image/form__container_type_image.css");
 
 .form {
     display: none;
