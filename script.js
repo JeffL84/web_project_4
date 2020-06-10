@@ -4,17 +4,17 @@ const imagePopup = document.querySelector(".form_type_image");
 
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
-const formName = document.querySelector(".form__name");
-const formOccupation = document.querySelector(".form__description");
+const formName = document.querySelector(".form__name-profile");
+const formOccupation = document.querySelector(".form__description-profile");
 
-const addFormTitle = addForm.querySelector(".form__name");
-const addFormUrl = addForm.querySelector(".form__description");
+const addFormTitle = addForm.querySelector(".form__name-card");
+const addFormUrl = addForm.querySelector(".form__description-card");
 
 const editButton = document.querySelector(".profile__edit-button");
 const saveButton = document.querySelector(".form__save-button");
 const closeButton = form.querySelector(".form__close-button");
 const addCardCloseButton = addForm.querySelector(".form__close-button");
-const createCardButton = addForm.querySelector(".form__save-button");
+const saveCardButton = addForm.querySelector(".form__save-button");
 const addButton = document.querySelector(".profile__add-button");
 
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
@@ -55,7 +55,6 @@ const createCard = (data) => {
    const cardRemoveButton = cardElement.querySelector(".elements__trash-icon");
 
    cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
-
    cardTitle.textContent = data.name;
    cardImage.style.backgroundImage = `url(${data.link})`;
 
@@ -96,39 +95,44 @@ function formToggle(modal) {
    modal.classList.toggle('form'); 
 }
 
-function formSave(event){
+function editFormSave(){
     event.preventDefault();
     userName.textContent = formName.value; 
     occupation.textContent = formOccupation.value; 
 
-   formToggle(form);
 }
 
-saveButton.addEventListener("click", formToggle(form));
-closeButton.addEventListener("click", formToggle(form));
+saveButton.addEventListener("click", (e) => {
+   e.preventDefault();
+   editFormSave();
+   formToggle(form);
+});
+
+closeButton.addEventListener("click", () => {
+   formToggle(form);
+});
 
 editButton.addEventListener("click", () => {
    formToggle(form);})
 addButton.addEventListener("click", () => {
    formToggle(addForm);})
-
 addCardCloseButton.addEventListener("click", () => {
    formToggle(addForm);})
 
-createCardButton.addEventListener("click", (data) => {
+   const addCardData = [];
+   console.log(addCardData);
+   console.log(saveCardButton);
+   console.log(addFormTitle);
 
-  renderCard(data);
-   //const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
-  // const cardElement = cardTemplate.cloneNode(true);
+saveCardButton.addEventListener("click", () => {
+   //event.preventDefault();
    
-   //const cardImage = cardElement.querySelector(".elements__image");
-   //const cardTitle = cardElement.querySelector(".elements__name");
-  // const cardLikeButton = cardElement.querySelector(".elements__heart-icon");
-  // const cardRemoveButton = cardElement.querySelector(".elements__trash-icon");
+   
+   addCardData.append(addFormTitle.value);
+   addCardData.append(addFormUrl.value);
 
-   //cardTitle.textContent = addFormTitle.value;
-   //cardImage.style.backgroundImage = `url(${addFormUrl.value})`;
+   console.log(addCardData);
 
-   //const list = document.querySelector(".elements");
-  // list.prepend(cardElement);
+  renderCard(addCardData);
+  formToggle(addForm);
 });
