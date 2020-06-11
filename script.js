@@ -70,6 +70,7 @@ const createCard = (data) => {
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
+      evt.stopPropagation();
      evt.target.closest(".elements__element").remove();
      
    });
@@ -126,20 +127,18 @@ addCardCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formToggle(addForm);})
 
-const addCardData = [];
+
+
+
 
 saveCardButton.addEventListener("click", (e) => {
    e.preventDefault();
-   //still not working correctly - look into dictionairies more or wait for Liza's response
 
-   addCardData.push({
-      key: "name",
-      value: addFormTitle.value});
-   addCardData.push({
-      key: "link",
-      value: addFormUrl.value});
+   const addCardData = {
 
-   console.log(addCardData);
+      name: addFormTitle.value,
+      link: addFormUrl.value
+   };
 
   renderCard(addCardData);
   formToggle(addForm);
