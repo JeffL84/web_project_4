@@ -65,15 +65,16 @@ const createCard = (data) => {
       bigImage.src = data.link;
       bigImageCaption.textContent = data.name;
 
+      //e.preventDefault(); trying to get transition to function on close...might need new listener
       formToggle(imagePopup);
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
-     // evt.target.closest.(".elements__element").remove();
+     evt.target.closest(".elements__element").remove();
      
    });
 
-   cardLikeButton.addEventListener("click", (evt)=> {
+   cardLikeButton.addEventListener("click", ()=> {
       cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
    });
 
@@ -108,28 +109,35 @@ saveButton.addEventListener("click", (e) => {
    formToggle(form);
 });
 
-closeButton.addEventListener("click", () => {
+closeButton.addEventListener("click", (e) => {
+   e.preventDefault();
    formToggle(form);
 });
 
-editButton.addEventListener("click", () => {
+editButton.addEventListener("click", (e) => {
+   e.preventDefault();
    formToggle(form);})
-addButton.addEventListener("click", () => {
-   formToggle(addForm);})
-addCardCloseButton.addEventListener("click", () => {
+
+addButton.addEventListener("click", (e) => {
+   e.preventDefault();
    formToggle(addForm);})
 
-   const addCardData = [];
-   console.log(addCardData);
-   console.log(saveCardButton);
-   console.log(addFormTitle);
+addCardCloseButton.addEventListener("click", (e) => {
+   e.preventDefault();
+   formToggle(addForm);})
 
-saveCardButton.addEventListener("click", () => {
-   //event.preventDefault();
-   
-   
-   addCardData.append(addFormTitle.value);
-   addCardData.append(addFormUrl.value);
+const addCardData = [];
+
+saveCardButton.addEventListener("click", (e) => {
+   e.preventDefault();
+   //still not working correctly - look into dictionairies more or wait for Liza's response
+
+   addCardData.push({
+      key: "name",
+      value: addFormTitle.value});
+   addCardData.push({
+      key: "link",
+      value: addFormUrl.value});
 
    console.log(addCardData);
 
