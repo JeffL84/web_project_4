@@ -1,0 +1,7 @@
+.big-image__picture {
+    margin: 0;
+    padding: 0;
+  width: 100%;
+ 
+  border: 2px solid yellow;
+}

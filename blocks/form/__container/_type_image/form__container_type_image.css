@@ -1,14 +1,15 @@
 .form__container_type_image {
+  display: flex;
+  position: fixed;
   border-radius: 0;
   object-fit: contain;
   background-color: transparent;
-  width: auto;
-  height: auto;
-  max-width: 75vw;
-  max-height: 75vh;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
   border: 1px solid red;
-  margin: 0 auto;
+  margin: auto;
   padding: 0;
   color: #e5e5e5;
-}
 
+}
