@@ -1,4 +1,5 @@
 .elements__trash-icon {
+    position: absolute;
     width: 21px;
     height: 20.3px;
     align-self: center;

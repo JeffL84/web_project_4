@@ -70,7 +70,7 @@ const createCard = (data) => {
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
-      evt.stopPropagation();
+    
      evt.target.closest(".elements__element").remove();
      
    });

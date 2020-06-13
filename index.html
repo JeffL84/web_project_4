@@ -10,8 +10,6 @@
 </head>
 <body class="page">
 
-
-
     <header class="header section-width">
         
         <img class = "header__vector"  src = "./images/headervector.svg" alt = "Around Vector">
@@ -26,7 +24,6 @@
        
         <img class = "profile__avatar" src = "images/Jaques.jpg" alt = "Jaques Couteau">
      
-
         <div class = "profile__info">
     
             <h1 class = "profile__name">Jacques Cousteau</h1>
@@ -37,21 +34,16 @@
             
         </div>
 
-
         <button class = "profile__add-button hover"></button>
 
     </section>
 
- 
     <section class="elements section-width">
     <ul>
         
     </ul>
     
     </section>
-
-
- 
 
     <section class = "form form_type_edit-profile">
 
@@ -89,7 +81,7 @@
         <form class = "form__container form__container_type_image">
 
             <figure class = "big-image"> 
-                <img class = "big-image__picture" src = "">
+                <img class = "big-image__picture" >
                 <figcaption class = "big-image__caption">
 
                 </figcaption>
@@ -109,14 +101,14 @@
     </footer>
 
     <template class = "elements__template">
-        <div class = "elements__element">
-            <div class = "elements__image"> <button class = "elements__trash-icon hover"></button> </div>
+        <li class = "elements__element">
+            <button class = "elements__trash-icon hover"></button>
+            <div class = "elements__image">  </div>
             <div class = "elements__bar">
             <p class = "elements__name"></p>
             <button class = "elements__heart-icon elements__heart-icon_theme_dark hover"></button>
-            
         </div>
-        </div>
+    </li>
     </template>
 
     <script src = "./script.js"></script>
