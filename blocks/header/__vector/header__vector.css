@@ -1,7 +1,7 @@
 .header__vector {
     width: 177px;
     height: 33px;
-    align-self: left;
+
 }
 
 @media screen and (max-width: 700px) {

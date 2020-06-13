@@ -1,7 +1,13 @@
 .form__name {
+    font-family: 'Inter', "Arial", sans-serif;
     margin-top: 54px;
     margin-left: 36px;
     margin-right: 36px;
     border: none;
     border-bottom: 1px solid black;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
 }
