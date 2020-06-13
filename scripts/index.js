@@ -15,6 +15,7 @@ const saveButton = document.querySelector(".form__save-button");
 const closeButton = form.querySelector(".form__close-button");
 const addCardCloseButton = addForm.querySelector(".form__close-button");
 const saveCardButton = addForm.querySelector(".form__save-button");
+const imageCloseButton = imagePopup.querySelector(".form__close-button");
 const addButton = document.querySelector(".profile__add-button");
 
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
@@ -58,21 +59,14 @@ const createCard = (data) => {
    cardTitle.textContent = data.name;
    cardImage.style.backgroundImage = `url(${data.link})`;
 
-   cardImage.addEventListener("click", ()=> {
-      const bigImage = imagePopup.querySelector(".big-image__picture");
-      const bigImageCaption = imagePopup.querySelector(".big-image__caption");
-
-      bigImage.src = data.link;
-      bigImageCaption.textContent = data.name;
-
-      //e.preventDefault(); trying to get transition to function on close...might need new listener
+   cardImage.addEventListener("click", (e)=> {
+      e.preventDefault();
+      fillImagePopup(data);
       formToggle(imagePopup);
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
-    
      evt.target.closest(".elements__element").remove();
-     
    });
 
    cardLikeButton.addEventListener("click", ()=> {
@@ -90,18 +84,20 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
-
-
-
 function formToggle(modal) {
    modal.classList.toggle('form'); 
 }
 
 function editFormSave(){
-    event.preventDefault();
     userName.textContent = formName.value; 
     occupation.textContent = formOccupation.value; 
+}
 
+function fillImagePopup(data) {
+   const bigImage = imagePopup.querySelector(".big-image__picture");
+      const bigImageCaption = imagePopup.querySelector(".big-image__caption");
+      bigImage.src = data.link;
+      bigImageCaption.textContent = data.name;
 }
 
 saveButton.addEventListener("click", (e) => {
@@ -116,30 +112,28 @@ closeButton.addEventListener("click", (e) => {
 });
 
 editButton.addEventListener("click", (e) => {
+   formName.value = userName.textContent; 
+   formOccupation.value = occupation.textContent; 
    e.preventDefault();
-   formToggle(form);})
+   formToggle(form);
+})
 
 addButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(addForm);})
+   formToggle(addForm);
+})
 
 addCardCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formToggle(addForm);})
 
-
-
-
-
 saveCardButton.addEventListener("click", (e) => {
    e.preventDefault();
+   renderCard({name: addFormTitle.value, link: addFormUrl.value});
+   formToggle(addForm);
+});
 
-   const addCardData = {
-
-      name: addFormTitle.value,
-      link: addFormUrl.value
-   };
-
-  renderCard(addCardData);
-  formToggle(addForm);
+imageCloseButton.addEventListener("click", (e) => {
+   e.preventDefault();
+   formToggle(imagePopup);
 });
