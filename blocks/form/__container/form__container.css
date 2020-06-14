@@ -17,8 +17,8 @@
 @media screen and (max-width: 500px) {
     .form__container {
         width: 240px;
-height: 258px;
-right: calc(50% - 120px);
-top: 155px;
+        height: 258px;
+        right: calc(50% - 120px);
+        top: 155px;
     }
 }

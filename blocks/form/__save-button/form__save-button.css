@@ -15,8 +15,7 @@
     .form__save-button {
         width: 200px;
         height: 40px;
-        margin-top: 36px;
-    margin-left: 20px;
-    margin-bottom: 30px;
+        margin: 36px 20px 27px 20px;
+        padding: 0;
     }
 }
