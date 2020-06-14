@@ -16,6 +16,7 @@
     grid-row-gap: 20px;
     box-sizing: border-box;
     object-fit: contain;
+    padding: 0;
 }
 
 @media screen and (max-width: 850px) {

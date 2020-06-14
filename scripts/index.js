@@ -20,6 +20,7 @@ const addButton = document.querySelector(".profile__add-button");
 
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
 const lists = document.querySelector(".elements");
+console.log(lists);
 
 const initialCards = [
    {
