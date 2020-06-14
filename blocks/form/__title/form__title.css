@@ -9,3 +9,15 @@
     line-height: 29px;
     color: #000000;
 }
+
+@media screen and (max-width: 500px) {
+
+    .form__title {
+        font-size: 18px;
+        line-height: 22px;
+        margin-top: 34px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}

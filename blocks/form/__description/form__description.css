@@ -11,3 +11,15 @@
     line-height: 17px;
     color: #C4C4C4;
 }
+
+
+@media screen and (max-width: 500px) {
+
+    .form__description {
+        margin-top: 36px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

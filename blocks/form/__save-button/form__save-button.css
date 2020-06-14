@@ -10,3 +10,13 @@
     border-radius: 2px;
     border: none;
 }
+
+@media screen and (max-width: 500px) {
+    .form__save-button {
+        width: 200px;
+        height: 40px;
+        margin-top: 36px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    }
+}
