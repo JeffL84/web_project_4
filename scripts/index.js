@@ -19,7 +19,7 @@ const imageCloseButton = imagePopup.querySelector(".form__close-button");
 const addButton = document.querySelector(".profile__add-button");
 
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
-const list = document.querySelector(".elements");
+const lists = document.querySelector(".elements");
 
 const initialCards = [
    {
@@ -77,8 +77,9 @@ const createCard = (data) => {
 };
 
 const renderCard = (data) => {
-   list.prepend(createCard(data));
+   lists.prepend(createCard(data));
 };
+
 
 initialCards.forEach((data) => {
    renderCard(data);
