@@ -49,7 +49,7 @@ const initialCards = [
 ];
 
 function formToggle(modal) {
-   modal.classList.toggle('form'); 
+   modal.classList.toggle('form_is-opened'); 
 }
 
 function editFormSave(){

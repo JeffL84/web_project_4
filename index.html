@@ -10,105 +10,105 @@
 </head>
 <body class="page">
 
-    <header class="header section-width">
+  <header class="header section-width">
         
-        <img class = "header__vector"  src = "./images/headervector.svg" alt = "Around Vector">
+    <img class = "header__vector"  src = "./images/headervector.svg" alt = "Around Vector">
 
-    </header>
+  </header>
 
-    <main>
+  <main>
 
-         <section class="profile section-width"> 
+    <section class="profile section-width"> 
 
-        <div class = "profile__section">
+      <div class = "profile__section">
        
         <img class = "profile__avatar" src = "images/Jaques.jpg" alt = "Jaques Couteau">
      
         <div class = "profile__info">
     
-            <h1 class = "profile__name">Jacques Cousteau</h1>
-            <button class = "profile__edit-button hover" ></button>
-            <p class = "profile__description">Explorer</p>
+          <h1 class = "profile__name">Jacques Cousteau</h1>
+          <button class = "profile__edit-button hover" ></button>
+          <p class = "profile__description">Explorer</p>
 
         </div>
             
-        </div>
+      </div>
 
-        <button class = "profile__add-button hover"></button>
+      <button class = "profile__add-button hover"></button>
 
     </section>
 
     <section class="section-width">
-    <ul class = "elements">
-  
-    </ul>
+
+      <ul class = "elements"></ul>
     
     </section>
 
-    <section class = "form form_is-opened form_type_edit-profile">
+    <section class = "form form_type_edit-profile">
+        <!--separate div for overlay to allow for different opacities for form and overlay-->
+      <div class = "form__overlay"></div>
+      <form class = "form__container">
 
-        <div class = "form__overlay"></div>
-        <form class = "form__container">
+        <h2 class = "form__title">Edit profile</h2>
+        <input class = "form__name form__name-profile" type = "text" id = "name" name = "name" placeholder ="Name">
+        <input class = "form__description form__description-profile" type = "text" id = "description" name = "description" placeholder = "About Me">
+        <button class = "form__save-button hover hover_type_dark" type = "submit">Save</button>
+        <button class = "form__close-button hover"></button>
 
-            <h2 class = "form__title">Edit profile</h2>
-            <input class = "form__name form__name-profile" type = "text" id = "name" name = "name" placeholder ="Name">
-            <input class = "form__description form__description-profile" type = "text" id = "description" name = "description" placeholder = "About Me">
-            <button class = "form__save-button hover" type = "submit">Save</button>
-            <button class = "form__close-button hover"></button>
-
-        </form>
-
-    </section>
-
-    <section class = "form form_is-opened form_type_add-card">
-
-        <div class = "form__overlay"></div>
-        <form class = "form__container">
-
-            <h2 class = "form__title">New Place</h2>
-            <input class = "form__name form__name-card" type = "text" id = "title" name = "title" placeholder ="Title">
-            <input class = "form__description form__description-card" type = "url" id = "url" name = "url" placeholder = "Image link">
-            <button class = "form__save-button form__card-save-button hover hover_type_dark" type = "submit">Create</button>
-            <button class = "form__close-button hover"></button>
-
-        </form>
+      </form>
 
     </section>
 
-    <section class = "form form_is-opened form_type_image">
+    <section class = "form form_type_add-card">
 
-        <div class = "form__overlay form__overlay_type_dark"></div>
-        <form class = "form__container form__container_type_image">
+      <div class = "form__overlay"></div>
+      <form class = "form__container">
 
-            <figure class = "big-image"> 
-                <img class = "big-image__picture" >
-                <figcaption class = "big-image__caption">
+        <h2 class = "form__title">New Place</h2>
+        <input class = "form__name form__name-card" type = "text" id = "title" name = "title" placeholder ="Title">
+        <input class = "form__description form__description-card" type = "url" id = "url" name = "url" placeholder = "Image link">
+        <button class = "form__save-button form__card-save-button hover hover_type_dark" type = "submit">Create</button>
+        <button class = "form__close-button hover"></button>
 
-                </figcaption>
-            </figure>
-
-            <button class = "form__close-button form__close-button_type_image hover"></button>
-        </form>
+      </form>
 
     </section>
 
-    </main>
+    <section class = "form form_type_image">
+
+      <div class = "form__overlay form__overlay_type_dark"></div>
+      <form class = "form__container form__container_type_image">
+
+        <figure class = "big-image">
+
+          <img class = "big-image__picture" alt = "card image">
+          <figcaption class = "big-image__caption"></figcaption>
+            
+        </figure>
+
+        <button class = "form__close-button form__close-button_type_image hover"></button>
+
+      </form>
+
+    </section>
+
+  </main>
 
     <footer class="footer section-width">
 
-        <p class="footer__trademark">&#169; 2020 Around The U.S. </p>
+      <p class="footer__trademark">&#169; 2020 Around The U.S. </p>
 
     </footer>
 
     <template class = "elements__template">
-        <li class = "elements__element">
-            <button class = "elements__trash-icon hover"></button>
-            <div class = "elements__image">  </div>
-            <div class = "elements__bar">
-            <p class = "elements__name"></p>
-            <button class = "elements__heart-icon hover"></button>
+      <li class = "elements__element">
+        <button class = "elements__trash-icon hover"></button>
+        <div class = "elements__image"></div>
+        <div class = "elements__bar">
+          <p class = "elements__name"></p>
+          <button class = "elements__heart-icon hover"></button>
         </div>
-    </li>
+      </li>
     </template>
 
     <script src = "./scripts/index.js"></script>
@@ -117,3 +117,4 @@
 </html>
 
     
+

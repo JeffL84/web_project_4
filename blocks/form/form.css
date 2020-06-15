@@ -7,13 +7,12 @@
 @import url("./__overlay/form__overlay.css");
 @import url("./__container/_type/form__container_type_image.css");
 @import url("./__close-button/_type/form__close-button_type_image.css");
-@import url("./_is-opened/form_is-opened.css");
 
 .form {
-    /*display: none;*/
   visibility: hidden;
   opacity: 0;
   transition: visibility 1s, opacity 1s linear;
   pointer-events: none;
   transition-delay: 0s;
+  
 }

@@ -9,6 +9,7 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
+    padding-bottom: 13.34px;
     color: #C4C4C4;
 }
 
@@ -22,5 +23,6 @@
         font-size: 12px;
         line-height: 15px;
         padding: 0;
+        padding-bottom: 12px;
     }
 }
