@@ -5,7 +5,7 @@
     align-self: center;
     background:  url("../../../images/trash.svg") no-repeat center bottom, url("../../../images/trashtop.svg") no-repeat center top; 
     border: none;
-    margin-top: 18px;
-    margin-left: 249px;
+    top: 18px;
+    right: 15px;
     z-index: 1;
 }

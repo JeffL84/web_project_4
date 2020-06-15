@@ -1,3 +1,12 @@
 .form__close-button_type_image {
     top: calc(10% - 40px);
 }
+
+@media screen and (max-width: 500px) {
+
+    .form__close-button_type_image {
+
+        top: calc(10% - 30px) ;
+        
+    }
+}

@@ -15,8 +15,10 @@
 @media screen and (max-width: 500px) {
 
     .form__close-button {
-        top: 121px;
-        right:calc(50vw - 160px) ;
+        top: 125px;
+        right:calc(50vw - 159px) ;
+        height: 30px;
+        width: 30px;
     }
 }
 

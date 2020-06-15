@@ -19,8 +19,7 @@ const imageCloseButton = imagePopup.querySelector(".form__close-button");
 const addButton = document.querySelector(".profile__add-button");
 
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
-const lists = document.querySelector(".elements");
-console.log(lists);
+const list = document.querySelector(".elements");
 
 const initialCards = [
    {
@@ -48,6 +47,22 @@ const initialCards = [
        link: "https://code.s3.yandex.net/web-code/lago.jpg"
    }
 ];
+
+function formToggle(modal) {
+   modal.classList.toggle('form'); 
+}
+
+function editFormSave(){
+    userName.textContent = formName.value; 
+    occupation.textContent = formOccupation.value; 
+}
+
+function fillImagePopup(data) {
+   const bigImage = imagePopup.querySelector(".big-image__picture");
+      const bigImageCaption = imagePopup.querySelector(".big-image__caption");
+      bigImage.src = data.link;
+      bigImageCaption.textContent = data.name;
+}
 
 const createCard = (data) => {
    const cardElement = cardTemplate.cloneNode(true);
@@ -77,29 +92,13 @@ const createCard = (data) => {
 };
 
 const renderCard = (data) => {
-   lists.prepend(createCard(data));
+   list.prepend(createCard(data));
 };
 
 
 initialCards.forEach((data) => {
    renderCard(data);
 });
-
-function formToggle(modal) {
-   modal.classList.toggle('form'); 
-}
-
-function editFormSave(){
-    userName.textContent = formName.value; 
-    occupation.textContent = formOccupation.value; 
-}
-
-function fillImagePopup(data) {
-   const bigImage = imagePopup.querySelector(".big-image__picture");
-      const bigImageCaption = imagePopup.querySelector(".big-image__caption");
-      bigImage.src = data.link;
-      bigImageCaption.textContent = data.name;
-}
 
 saveButton.addEventListener("click", (e) => {
    e.preventDefault();
@@ -112,10 +111,9 @@ closeButton.addEventListener("click", (e) => {
    formToggle(form);
 });
 
-editButton.addEventListener("click", (e) => {
+editButton.addEventListener("click", () => {
    formName.value = userName.textContent; 
    formOccupation.value = occupation.textContent; 
-   e.preventDefault();
    formToggle(form);
 })
 
@@ -132,6 +130,7 @@ saveCardButton.addEventListener("click", (e) => {
    e.preventDefault();
    renderCard({name: addFormTitle.value, link: addFormUrl.value});
    formToggle(addForm);
+   addForm.reset();
 });
 
 imageCloseButton.addEventListener("click", (e) => {

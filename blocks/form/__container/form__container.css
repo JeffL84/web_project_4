@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     width: 430px;
-    height: 330px;
     background-color: white;
     position: fixed;
     right: calc(50% - 215px);
