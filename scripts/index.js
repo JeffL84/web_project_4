@@ -56,7 +56,6 @@ const createCard = (data) => {
    const cardLikeButton = cardElement.querySelector(".elements__heart-icon");
    const cardRemoveButton = cardElement.querySelector(".elements__trash-icon");
 
-   cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
    cardTitle.textContent = data.name;
    cardImage.style.backgroundImage = `url(${data.link})`;
 
