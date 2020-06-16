@@ -1,9 +1,9 @@
 @import url("./__picture/big-image__picture.css");
 
 .big-image {
- margin: 0;
- padding: 0;
- max-width: 75vw;
- max-height: 75vh;
+  margin: 0;
+  padding: 0;
+  max-width: 75vw;
+  max-height: 75vh;
 
 }

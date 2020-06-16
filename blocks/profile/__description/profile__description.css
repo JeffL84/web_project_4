@@ -1,22 +1,22 @@
 .profile__description {
-    grid-area: description;
-    margin-top: 16px;
-    margin-bottom: 0;
-    font-family: 'Inter', "Arial", sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 22px;
+  grid-area: description;
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-family: 'Inter', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 @media screen and (max-width: 600px) {
-    .profile__description {
-        font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
-    margin-top: 14px;
-    margin-left: 30px;
-    }
+.profile__description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-top: 14px;
+  margin-left: 30px;
+  }
 }

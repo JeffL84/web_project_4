@@ -1,16 +1,16 @@
 .footer__trademark {
-    margin: 0; 
-    padding: 0; 
-    color: #545454; 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
+  margin: 0; 
+  padding: 0; 
+  color: #545454; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 @media screen and (max-width: 900px){
-    .footer__trademark {
-        margin-left: 19px; 
-    }
+.footer__trademark {
+  margin-left: 19px; 
+}
 }
 

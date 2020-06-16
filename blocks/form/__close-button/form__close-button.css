@@ -1,24 +1,24 @@
 .form__close-button {
-    position: fixed;
-    height: 41px;
-    width: 41px;
-    top: 155px;
-    right: calc(50vw - 260px);
-    background-image: url("../../../images/CloseIcon.png");
-    background-repeat: no-repeat; 
-    background-color: transparent; 
-    background-position: center;
-    border: none;
+  position: fixed;
+  height: 41px;
+  width: 41px;
+  top: 155px;
+  right: calc(50vw - 260px);
+  background-image: url("../../../images/CloseIcon.png");
+  background-repeat: no-repeat; 
+  background-color: transparent; 
+  background-position: center;
+  border: none;
 }
 
 
 @media screen and (max-width: 500px) {
 
-    .form__close-button {
-        top: 125px;
-        right:calc(50vw - 159px) ;
-        height: 30px;
-        width: 30px;
-    }
+.form__close-button {
+  top: 125px;
+  right:calc(50vw - 159px) ;
+  height: 30px;
+  width: 30px;
+}
 }
 

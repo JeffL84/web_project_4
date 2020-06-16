@@ -1,27 +1,31 @@
 .form__name {
-    font-family: 'Inter', "Arial", sans-serif;
-    margin-top: 54px;
-    margin-left: 36px;
-    margin-right: 36px;
-    border: none;
-    border-bottom: 1px solid black;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    padding-bottom: 13.26px;
-    color: #C4C4C4;
+  font-family: 'Inter', "Arial", sans-serif;
+  margin-top: 54px;
+  margin-left: 36px;
+  margin-right: 36px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  padding-bottom: 13.26px;
+  color: #C4C4C4;
+}
+
+.form__name:focus {
+  color: black;
 }
 
 @media screen and (max-width: 500px) {
 
-    .form__name {
-        margin-top: 36px;
-        margin-left: 20px;
-        margin-right: 20px;
-        font-size: 12px;
-        line-height: 15px;
-        padding: 0;
-        padding-bottom: 12px;
-    }
+.form__name {
+  margin-top: 36px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0;
+  padding-bottom: 12px;
+}
 }

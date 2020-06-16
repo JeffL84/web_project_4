@@ -1,21 +1,19 @@
 .profile__info {
-    display: grid;
-    max-width: 468px; 
-    grid-template-areas: 
-    "name edit-button"
-    "description ." ;
-    align-self: center; 
-    margin-left: 30px;
-    
+  display: grid;
+  max-width: 468px; 
+  grid-template-areas: 
+  "name edit-button"
+  "description ." ;
+  align-self: center; 
+  margin-left: 30px;
 }
 
 @media screen and (max-width: 600px) {
 
-    .profile__info {
-        margin: 0 auto;
-        margin-top: 10.25px;
-        width: 100%;
-    
-    }
+.profile__info {
+  margin: 0 auto;
+  margin-top: 10.25px;
+  width: 100%;
+}
 
 }

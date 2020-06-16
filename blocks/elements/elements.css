@@ -8,29 +8,29 @@
 
 
 .elements {
-    font-family: 'Inter', "Arial", sans-serif;
-    max-width: 882px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
-    grid-row-gap: 20px;
-    box-sizing: border-box;
-    object-fit: contain;
-    padding: 0;
+  font-family: 'Inter', "Arial", sans-serif;
+  max-width: 882px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 18px;
+  grid-row-gap: 20px;
+  box-sizing: border-box;
+  object-fit: contain;
+  padding: 0;
 }
 
 @media screen and (max-width: 850px) {
 
 .elements {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 }
 
 @media screen and (max-width: 700px) {
 
-    .elements {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
-    }
+.elements {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+}

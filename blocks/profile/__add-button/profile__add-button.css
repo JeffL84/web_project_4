@@ -1,26 +1,26 @@
 .profile__add-button{
-    height: 50px; 
-    width: 150px; 
-    align-self: center; 
-    border: 1px solid white; 
-    border-radius: 2px; 
-    background-image: url("../../../images/Plussign.png");
-    background-repeat: no-repeat; 
-    background-color: transparent; 
-    background-position: center;
+  height: 50px; 
+  width: 150px; 
+  align-self: center; 
+  border: 1px solid white; 
+  border-radius: 2px; 
+  background-image: url("../../../images/Plussign.png");
+  background-repeat: no-repeat; 
+  background-color: transparent; 
+  background-position: center;
 }
 
 @media screen and (max-width: 900px){
-    .profile__add-button{
-        margin-right: 18px; 
-    }
+.profile__add-button{
+  margin-right: 18px; 
+}
 }
 
 @media only screen and (max-width: 700px){
-    .profile__add-button{
-        margin: 52px auto 0 auto; 
-        max-width: 420px; 
-        min-width: 282px; 
-        width: 70%;  
-    }
+.profile__add-button{
+  margin: 52px auto 0 auto; 
+  max-width: 420px; 
+  min-width: 282px; 
+  width: 70%;  
+}
 }

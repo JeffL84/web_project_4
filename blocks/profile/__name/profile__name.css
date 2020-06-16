@@ -1,36 +1,37 @@
 .profile__name {
-    grid-area: name; 
-    margin: 0; 
-    font-style: normal;
-    font-weight: 500;
-    padding: 0; 
-    font-size: 42px;
-    line-height: 56px;  
-    max-width: 380px; 
-    white-space: nowrap;
+  grid-area: name; 
+  margin: 0; 
+  font-style: normal;
+  font-weight: 500;
+  padding: 0; 
+  font-size: 42px;
+  line-height: 56px;  
+  max-width: 380px; 
+  white-space: nowrap;
   overflow: hidden;
-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 710px) {
-    .profile__name {
-        font-style: normal; 
-        font-weight: 500;
-        text-align: center;
-        max-width: 280px;
-    }
+.profile__name {
+  font-style: normal; 
+  font-weight: 500;
+  text-align: center;
+  max-width: 280px;
+}
 }
 
-
 @media screen and (max-width: 600px) {
-    .profile__name {
-        font-style: normal; 
-        font-weight: 500;
-        font-size: 22px;
-        line-height: 56px;
-        text-align: center;
-        max-width: 280px;
-        overflow: visible;
-    }
+.profile__name {
+  font-style: normal; 
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 56px;
+  text-align: center;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 }
 

@@ -124,13 +124,15 @@ addButton.addEventListener("click", (e) => {
 
 addCardCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(addForm);})
+   formToggle(addForm);
+})
 
 saveCardButton.addEventListener("click", (e) => {
    e.preventDefault();
    renderCard({name: addFormTitle.value, link: addFormUrl.value});
    formToggle(addForm);
-   addForm.reset();
+   addFormUrl.value = "";
+   addFormTitle.value = "";
 });
 
 imageCloseButton.addEventListener("click", (e) => {

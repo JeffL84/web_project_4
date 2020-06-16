@@ -1,22 +1,22 @@
 .form__save-button {
-    margin-top: 48px;
-    margin-left: 36px;
-    margin-right: 36px;
-    margin-bottom: 37px;
-    background-color: black;
-    color: white;
-    width: 358px;
-    padding-top: 14px;
-    padding-bottom: 18px;
-    border-radius: 2px;
-    border: none;
+  margin-top: 48px;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-bottom: 37px;
+  background-color: black;
+  color: white;
+  width: 358px;
+  padding-top: 14px;
+  padding-bottom: 18px;
+  border-radius: 2px;
+  border: none;
 }
 
 @media screen and (max-width: 500px) {
-    .form__save-button {
-        width: 200px;
-        padding-top: 12px;
-        padding-bottom: 14px;
-        margin: 36px 20px 27px 20px;
-    }
+.form__save-button {
+  width: 200px;
+  padding-top: 12px;
+  padding-bottom: 14px;
+  margin: 36px 20px 27px 20px;
+}
 }

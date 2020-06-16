@@ -1,9 +1,9 @@
 .elements__heart-icon {
-    width: 22px;
-    height: 18px;
-    align-self: center;
-    background-image: url("../../../images/hearticon.svg");
-    background-repeat: no-repeat; 
-    background-color: transparent; 
-    border: none;
+  width: 22px;
+  height: 18px;
+  align-self: center;
+  background-image: url("../../../images/hearticon.svg");
+  background-repeat: no-repeat; 
+  background-color: transparent; 
+  border: none;
 }
