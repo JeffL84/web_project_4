@@ -5,6 +5,7 @@ const imagePopup = document.querySelector(".form_type_image");
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
 const formName = document.querySelector(".form__name-profile");
+console.log(formName);
 const formOccupation = document.querySelector(".form__description-profile");
 
 const addFormTitle = addForm.querySelector(".form__name-card");
@@ -100,8 +101,25 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
+//input listeners for form validation
+
+formName.addEventListener("input", ()=> {
+  if (formName.value.length > 2 && formName.value.length <40) {
+    //validate
+  }
+  else {
+    //add error messages and make sure button is not valid
+  }
+});
+
+formOccupation.addEventListener("input", ()=> {
+  
+});
+
+//button listeners
+
 saveButton.addEventListener("click", (e) => {
-   e.preventDefault();
+  //  e.preventDefault();
    editFormSave();
    formToggle(form);
 });
@@ -139,3 +157,5 @@ imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formToggle(imagePopup);
 });
+
+console.log(document.forms);

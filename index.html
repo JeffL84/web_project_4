@@ -47,11 +47,11 @@
     <section class = "form form_type_edit-profile">
         <!--separate div for overlay to allow for different opacities for form and overlay-->
       <div class = "form__overlay"></div>
-      <form class = "form__container">
+      <form class = "form__container" novalidate>
 
         <h2 class = "form__title">Edit profile</h2>
-        <input class = "form__name form__name-profile" type = "text" id = "name" name = "name" placeholder ="Name">
-        <input class = "form__description form__description-profile" type = "text" id = "description" name = "description" placeholder = "About Me">
+        <input class = "form__name form__name-profile" type = "text" id = "name" name = "name" placeholder ="Name" minlength = "2" maxlength = "40" required>
+        <input class = "form__description form__description-profile" type = "text" id = "description" name = "description" placeholder = "About Me" minlength = "2" maxlength = "200" required>
         <button class = "form__save-button hover hover_type_dark" type = "submit">Save</button>
         <button class = "form__close-button hover"></button>
 
