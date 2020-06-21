@@ -17,6 +17,13 @@
   color: black;
 }
 
+.form__description:invalid {
+  border-bottom: 1px solid red;
+}
+
+.form__description:valid {
+  border-bottom: 1px solid black;
+}
 
 @media screen and (max-width: 500px) {
 

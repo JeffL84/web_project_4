@@ -2,10 +2,13 @@ const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
 const imagePopup = document.querySelector(".form_type_image");
 
+//form does not reference the <form> tagged element in the html. editProfileForm does
+const editProfileForm = document.forms.profileForm;
+console.log(editProfileForm);
+
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
 const formName = document.querySelector(".form__name-profile");
-console.log(formName);
 const formOccupation = document.querySelector(".form__description-profile");
 
 const addFormTitle = addForm.querySelector(".form__name-card");
@@ -101,25 +104,74 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
-//input listeners for form validation
+// check for validity and show/hide error messages
 
-formName.addEventListener("input", ()=> {
-  if (formName.value.length > 2 && formName.value.length <40) {
-    //validate
+const showInputError = (formElement, inputElement, errorMessage) => {
+  //I might have to go back and add IDs for these elements to use the # format?
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
+  console.log(errorElement);
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  //need to define the class below and add it to html???
+  errorElement.classlist.add("form__input-error_active");
+};
+
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
+  inputElement.classList.remove("form__input_type_error");
+  errorElement.classList.remove("form__input-error_active");
+  errorElement.textContent = "";
+};
+
+const isValid = (formElement, inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
   }
-  else {
-    //add error messages and make sure button is not valid
-  }
-});
+};
 
-formOccupation.addEventListener("input", ()=> {
-  
-});
+//setting event listeners for all forms
 
-//button listeners
+const setEventListeners = (formElement) => {
+  //make sure all inputs have this class .form__input
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener("input", () => {
+      isValid(formElement, inputElement);
+    });
+  });
+};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
+
+// initial attmept at input listeners for form validation
+
+// editProfileForm.addEventListener("submit", function (evt) {
+//   evt.preventDefault();
+
+// });
+
+// formName.addEventListener("input", isValid(formName));
+// console.log(formName);
+
+// formOccupation.addEventListener("input", isValid(formOccupation));
+// console.log(formOccupation);
+
+//button listeners start here
 
 saveButton.addEventListener("click", (e) => {
-  //  e.preventDefault();
+   e.preventDefault();
    editFormSave();
    formToggle(form);
 });
@@ -157,5 +209,3 @@ imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formToggle(imagePopup);
 });
-
-console.log(document.forms);

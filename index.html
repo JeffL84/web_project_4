@@ -47,11 +47,12 @@
     <section class = "form form_type_edit-profile">
         <!--separate div for overlay to allow for different opacities for form and overlay-->
       <div class = "form__overlay"></div>
-      <form class = "form__container" novalidate>
+      <form class = "form__container" name = "profileForm" novalidate>
 
         <h2 class = "form__title">Edit profile</h2>
-        <input class = "form__name form__name-profile" type = "text" id = "name" name = "name" placeholder ="Name" minlength = "2" maxlength = "40" required>
-        <input class = "form__description form__description-profile" type = "text" id = "description" name = "description" placeholder = "About Me" minlength = "2" maxlength = "200" required>
+        <input class = "form__name form__name-profile form__input" type = "text" id = "name" name = "name" placeholder ="Name" minlength = "2" maxlength = "40" required>
+        <label for = "name">Test</label>
+        <input class = "form__description form__description-profile form__input" type = "text" id = "description" name = "description" placeholder = "About Me" minlength = "2" maxlength = "200" required>
         <button class = "form__save-button hover hover_type_dark" type = "submit">Save</button>
         <button class = "form__close-button hover"></button>
 
@@ -65,8 +66,8 @@
       <form class = "form__container">
 
         <h2 class = "form__title">New Place</h2>
-        <input class = "form__name form__name-card" type = "text" id = "title" name = "title" placeholder ="Title">
-        <input class = "form__description form__description-card" type = "url" id = "url" name = "url" placeholder = "Image link">
+        <input class = "form__name form__name-card form__input" type = "text" id = "title" name = "title" placeholder ="Title">
+        <input class = "form__description form__description-card form__input" type = "url" id = "url" name = "url" placeholder = "Image link">
         <button class = "form__save-button form__card-save-button hover hover_type_dark" type = "submit">Create</button>
         <button class = "form__close-button hover"></button>
 
@@ -81,8 +82,8 @@
 
         <figure class = "big-image">
 
-          <img class = "big-image__picture" alt = "card image">
-          <figcaption class = "big-image__caption"></figcaption>
+          <img class = "big-image__picture" alt = "card image" id = "bigImage" name = "bigImage">
+          <figcaption class = "big-image__caption" id = "caption" name = "caption"></figcaption>
             
         </figure>
 
