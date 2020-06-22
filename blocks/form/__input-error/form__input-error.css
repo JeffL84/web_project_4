@@ -10,3 +10,10 @@
   margin-left: 36px;
   margin-right: 36px;
 }
+
+@media screen and (max-width: 500px) {
+
+.form__input-error {
+  margin-left: 20px;
+  margin-right: 20px;
+}

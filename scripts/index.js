@@ -4,7 +4,6 @@ const imagePopup = document.querySelector(".form_type_image");
 
 //form does not reference the <form> tagged element in the html. editProfileForm does
 const editProfileForm = document.forms.profileForm;
-console.log(editProfileForm);
 
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
@@ -107,12 +106,9 @@ initialCards.forEach((data) => {
 // check for validity and show/hide error messages
 
 const showInputError = (formElement, inputElement, errorMessage) => {
-  //I might have to go back and add IDs for these elements to use the # format?
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
-  console.log(errorElement);
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
-  //need to define the class below and add it to html???
   errorElement.classList.add("form__input-error_active");
 };
 
@@ -131,20 +127,45 @@ const isValid = (formElement, inputElement) => {
   }
 };
 
+//checking the whole form's validity state to toggle button
+
+const hasInvalidInput = (inputList) => {
+  console.log(inputList);
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+//something is currently off about the toggleButtonState
+//it is toggling when just a single field is valid not when all are
+//look back at the logic!
+
+const toggleButtonState = (listOfInputs, formButtonElement) => {
+  if (hasInvalidInput(listOfInputs)) {
+    formButtonElement.classList.add("form__save-button_type_inactive");
+  }
+  else {
+    formButtonElement.classList.remove("form__save-button_type_inactive");
+  }
+};
+
 //setting event listeners for all forms
 
 const setEventListeners = (formElement) => {
-  //make sure all inputs have this class .form__input
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  const buttonElement = formElement.querySelector(".form__save-button");
+  console.log(buttonElement);
+  toggleButtonState(inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       isValid(formElement, inputElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
 
 const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
+  const formList = Array.from(document.querySelectorAll(".form-with-button"));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
