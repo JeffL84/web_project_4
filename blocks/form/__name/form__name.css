@@ -17,14 +17,6 @@
   color: black;
 }
 
-.form__name:invalid {
-  border-bottom: 1px solid red;
-}
-
-.form__name:valid {
-  border-bottom: 1px solid black;
-}
-
 @media screen and (max-width: 500px) {
 
 .form__name {

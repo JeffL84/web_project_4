@@ -113,7 +113,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
   //need to define the class below and add it to html???
-  errorElement.classlist.add("form__input-error_active");
+  errorElement.classList.add("form__input-error_active");
 };
 
 const hideInputError = (formElement, inputElement) => {
@@ -154,19 +154,6 @@ const enableValidation = () => {
 };
 
 enableValidation();
-
-// initial attmept at input listeners for form validation
-
-// editProfileForm.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
-
-// });
-
-// formName.addEventListener("input", isValid(formName));
-// console.log(formName);
-
-// formOccupation.addEventListener("input", isValid(formOccupation));
-// console.log(formOccupation);
 
 //button listeners start here
 
