@@ -132,6 +132,7 @@ const isValid = (formElement, inputElement) => {
 const hasInvalidInput = (inputList) => {
   console.log(inputList);
   return inputList.some((inputElement) => {
+    console.log(!inputElement.validity.valid);
     return !inputElement.validity.valid;
   });
 };
