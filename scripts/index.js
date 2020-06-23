@@ -109,17 +109,9 @@ initialCards.forEach((data) => {
 
 //overlay listeners
 
-console.log(formOverlaysList);
-formOverlaysList.forEach((overlayElement) => {
-  console.log(overlayElement);
-  // overlayElement.addEventListener("keydown", function (evt) {
-  //   console.log(evt.keyCode);
-  //   if (evt.keyCode == 27) {
-  //     console.log("it is running");
-  //     formToggle(form);;
-  //   }
-  // });
-  overlayElement.addEventListener("click", function () {
+function overlayCloseClick() {
+  formOverlaysList.forEach((overlayElement) => {
+   overlayElement.addEventListener("click", function () {
     if (form.classList.contains("form_is-opened")) {
     formToggle(form);
     }
@@ -130,8 +122,30 @@ formOverlaysList.forEach((overlayElement) => {
         formToggle(imagePopup);
         }
     });
- 
 });
+}
+
+overlayCloseClick();
+
+function overlayCloseEsc() {
+  document.addEventListener("keydown", function (evt) {
+    console.log(evt.keyCode);
+    if (evt.keyCode == 27) {
+      console.log("it is running");
+      if (form.classList.contains("form_is-opened")) {
+        formToggle(form);
+        }
+        else if (addForm.classList.contains("form_is-opened")) {
+          formToggle(addForm);
+          }
+        else {
+            formToggle(imagePopup);
+            }
+          }
+  });
+}
+
+overlayCloseEsc();
 
 //button listeners start here
 
