@@ -11,18 +11,20 @@
   line-height: 17px;
   padding-bottom: 13.34px;
   color: #C4C4C4;
+  opacity: .2;
 }
 
-.form__description:focus {
+/* .form__description:focus {
   color: black;
-}
+} */
 
-.form__description:invalid {
+/* .form__description:invalid {
   border-bottom: 1px solid red;
-}
+} */
 
 .form__description:valid {
-  border-bottom: 1px solid black;
+  color: black;
+  opacity: 1;
 }
 
 @media screen and (max-width: 500px) {

@@ -24,6 +24,9 @@ const addButton = document.querySelector(".profile__add-button");
 const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
 const list = document.querySelector(".elements");
 
+const formOverlays = document.querySelectorAll(".form__overlay");
+const formOverlaysList = Array.from(formOverlays);
+
 const initialCards = [
    {
       name: "Yosemite Valley",
@@ -57,7 +60,8 @@ function formToggle(modal) {
 
 function editFormSave(){
     userName.textContent = formName.value; 
-    occupation.textContent = formOccupation.value; 
+    occupation.textContent = formOccupation.value;
+    editProfileForm.reset();
 }
 
 function fillImagePopup(data) {
@@ -103,79 +107,31 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
-// check for validity and show/hide error messages
+//overlay listeners
 
-const showInputError = (formElement, inputElement, errorMessage) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
-  inputElement.classList.add("form__input_type_error");
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add("form__input-error_active");
-};
-
-const hideInputError = (formElement, inputElement) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
-  inputElement.classList.remove("form__input_type_error");
-  errorElement.classList.remove("form__input-error_active");
-  errorElement.textContent = "";
-};
-
-const isValid = (formElement, inputElement) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else {
-    hideInputError(formElement, inputElement);
-  }
-};
-
-//checking the whole form's validity state to toggle button
-
-const hasInvalidInput = (inputList) => {
-  console.log(inputList);
-  return inputList.some((inputElement) => {
-    console.log(!inputElement.validity.valid);
-    return !inputElement.validity.valid;
-  });
-};
-
-//something is currently off about the toggleButtonState
-//it is toggling when just a single field is valid not when all are
-//look back at the logic!
-
-const toggleButtonState = (listOfInputs, formButtonElement) => {
-  if (hasInvalidInput(listOfInputs)) {
-    formButtonElement.classList.add("form__save-button_type_inactive");
-  }
-  else {
-    formButtonElement.classList.remove("form__save-button_type_inactive");
-  }
-};
-
-//setting event listeners for all forms
-
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".form__save-button");
-  console.log(buttonElement);
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      isValid(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+console.log(formOverlaysList);
+formOverlaysList.forEach((overlayElement) => {
+  console.log(overlayElement);
+  // overlayElement.addEventListener("keydown", function (evt) {
+  //   console.log(evt.keyCode);
+  //   if (evt.keyCode == 27) {
+  //     console.log("it is running");
+  //     formToggle(form);;
+  //   }
+  // });
+  overlayElement.addEventListener("click", function () {
+    if (form.classList.contains("form_is-opened")) {
+    formToggle(form);
+    }
+    else if (addForm.classList.contains("form_is-opened")) {
+      formToggle(addForm);
+      }
+    else {
+        formToggle(imagePopup);
+        }
     });
-  });
-};
-
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form-with-button"));
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
-    setEventListeners(formElement);
-  });
-};
-
-enableValidation();
+ 
+});
 
 //button listeners start here
 

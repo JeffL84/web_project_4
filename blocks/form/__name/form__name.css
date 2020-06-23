@@ -4,17 +4,24 @@
   margin-left: 36px;
   margin-right: 36px;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px dashed rgba(0, 0, 0, .2);
+  background-clip: padding-box;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 17px;
   padding-bottom: 13.26px;
   color: #C4C4C4;
+  opacity: .2;
 }
 
-.form__name:focus {
+/* .form__name:focus {
   color: black;
+} */
+
+.form__name:valid {
+  color: black;
+  opacity: 1;
 }
 
 @media screen and (max-width: 500px) {
