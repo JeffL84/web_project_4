@@ -67,9 +67,9 @@
       <form class = "form__container">
 
         <h2 class = "form__title">New Place</h2>
-        <input class = "form__name form__name-card form__input" type = "text" id = "title" name = "title" placeholder ="Title">
+        <input class = "form__name form__name-card form__input" type = "text" id = "title" name = "title" placeholder ="Title" minlength = "1" maxlength = "30" required>
         <span id ="title-error" class = "form__input-error"></span>
-        <input class = "form__description form__description-card form__input" type = "url" id = "url" name = "url" placeholder = "Image link">
+        <input class = "form__description form__description-card form__input" type = "url" id = "url" name = "url" placeholder = "Image link" required>
         <span id ="url-error" class = "form__input-error"></span>
         <button class = "form__save-button form__card-save-button hover hover_type_dark" type = "submit">Create</button>
         <button class = "form__close-button hover"></button>
