@@ -1,8 +1,6 @@
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
 const imagePopup = document.querySelector(".form_type_image");
-
-//form does not reference the <form> tagged element in the html. editProfileForm does
 const editProfileForm = document.forms.profileForm;
 
 const userName = document.querySelector(".profile__name");
@@ -61,7 +59,6 @@ function formToggle(modal) {
 function editFormSave(){
     userName.textContent = formName.value; 
     occupation.textContent = formOccupation.value;
-    editProfileForm.reset();
 }
 
 function fillImagePopup(data) {
@@ -129,9 +126,7 @@ overlayCloseClick();
 
 function overlayCloseEsc() {
   document.addEventListener("keydown", function (evt) {
-    console.log(evt.keyCode);
     if (evt.keyCode == 27) {
-      console.log("it is running");
       if (form.classList.contains("form_is-opened")) {
         formToggle(form);
         }
@@ -141,7 +136,7 @@ function overlayCloseEsc() {
         else {
             formToggle(imagePopup);
             }
-          }
+      }
   });
 }
 
@@ -161,8 +156,9 @@ closeButton.addEventListener("click", (e) => {
 });
 
 editButton.addEventListener("click", () => {
-   formName.value = userName.textContent; 
-   formOccupation.value = occupation.textContent; 
+  //edited to match new figma requirements 
+  //  formName.value = userName.textContent; 
+  //  formOccupation.value = occupation.textContent; 
    formToggle(form);
 })
 

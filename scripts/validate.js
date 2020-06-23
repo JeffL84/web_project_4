@@ -30,10 +30,6 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-//something is currently off about the toggleButtonState
-//it is toggling when just a single field is valid not when all are
-//look back at the logic!
-
 const toggleButtonState = (listOfInputs, formButtonElement) => {
   if (hasInvalidInput(listOfInputs)) {
     formButtonElement.classList.add("form__save-button_type_inactive");

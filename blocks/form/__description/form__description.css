@@ -14,13 +14,9 @@
   opacity: .2;
 }
 
-/* .form__description:focus {
+.form__description:focus {
   color: black;
-} */
-
-/* .form__description:invalid {
-  border-bottom: 1px solid red;
-} */
+}
 
 .form__description:valid {
   color: black;
