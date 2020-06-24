@@ -1,11 +1,10 @@
 // check for validity and show/hide error messages
 
-const showInputError = (formElement, inputElement, {errorClass, inputErrorClass, ...rest}) => {
-  const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-  console.log(errorElement);
-  inputElement.classList.add(inputErrorClass);
-  errorElement.textContent = inputElement.validationMessage;
-  errorElement.classList.add(errorClass);
+const showInputError = (formElement, inputElement, errorMessage) => {
+  const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
+  inputElement.classList.add("form__input_type_error");
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add("form__input-error_active");
 };
 
 const hideInputError = (formElement, inputElement) => {
@@ -15,7 +14,7 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const isValid = (formElement, inputElement, rest) => {
+const isValid = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -40,30 +39,33 @@ const toggleButtonState = (listOfInputs, formButtonElement) => {
   }
 };
 
-const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ...rest}) => {
-  const formList = Array.from(document.querySelectorAll(formSelector));
-  console.log(formList);
-  console.log(inputSelector);
-  formList.forEach((formElement) => {
-    formElement.addEventListener("submit", ((evt) => {
-      evt.preventDefault();
-    }));
+//setting event listeners for all forms
 
-    const inputList = Array.from(formElement.querySelectorAll(inputSelector));
-    const buttonElement = formElement.querySelector(submitButtonSelector);
-    console.log(inputList);
-    console.log(buttonElement);
-
-    toggleButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+  console.log(inputList);
+  const buttonElement = formElement.querySelector(".form__save-button");
+  console.log(buttonElement);
+  toggleButtonState(inputList, buttonElement);
+  inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
-      isValid(formElement, inputElement, rest);
+      isValid(formElement, inputElement);
       toggleButtonState(inputList, buttonElement);
     });
   });
-});
-}
+};
 
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(".form-with-button"));
+  formList.forEach((formElement) => {
+    formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  });
+};
+
+enableValidation();
 enableValidation({
   formSelector: ".form-with-button", // my  line 57
   inputSelector: ".form_input", // my  line 45
