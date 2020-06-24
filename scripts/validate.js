@@ -30,12 +30,12 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (listOfInputs, formButtonElement) => {
-  if (hasInvalidInput(listOfInputs)) {
-    formButtonElement.classList.add("form__save-button_type_inactive");
+const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass, ...rest}) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(inactiveButtonClass);
   }
   else {
-    formButtonElement.classList.remove("form__save-button_type_inactive");
+    buttonElement.classList.remove(inactiveButtonClass);
   }
 };
 
@@ -49,21 +49,21 @@ const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ..
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     const buttonElement = formElement.querySelector(submitButtonSelector);
 
-    toggleButtonState(inputList, buttonElement);
+    toggleButtonState(inputList, buttonElement, rest);
     inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       isValid(formElement, inputElement, rest);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, rest);
     });
   });
 });
 }
 
 enableValidation({
-  formSelector: ".form-with-button", // my  line 57
-  inputSelector: ".form__input", // my  line 45
-  submitButtonSelector: ".form__save-button", // my  line 46
-  inactiveButtonClass: "form__save-button_type_inactive", // my  lines 35,38
-  inputErrorClass: "form__input_type_error", //  @top
-  errorClass: "form__input-error_active" //  @ top
+  formSelector: ".form-with-button", 
+  inputSelector: ".form__input", 
+  submitButtonSelector: ".form__save-button", 
+  inactiveButtonClass: "form__save-button_type_inactive", 
+  inputErrorClass: "form__input_type_error", 
+  errorClass: "form__input-error_active"
 });
