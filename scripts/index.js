@@ -51,8 +51,25 @@ const initialCards = [
    }
 ];
 
-function formToggle(modal) {
-   modal.classList.toggle('form_is-opened'); 
+function handleEscUp(evt) {
+  const formsList = Array.from(document.querySelectorAll(".form"));
+    if (evt.keyCode == 27) {
+      formsList.forEach((modal) => {
+          if (modal.classList.contains("form_is-opened")) {
+            formClose(modal);
+        }
+        }); 
+      }
+}
+
+function formOpen(modal) {
+  modal.classList.add("form_is-opened");
+  document.addEventListener("keyup", handleEscUp);
+}
+
+function formClose(modal) {
+  modal.classList.remove("form_is-opened");
+  document.removeEventListener("keyup", handleEscUp);
 }
 
 function editFormSave(){
@@ -80,8 +97,8 @@ const createCard = (data) => {
    cardImage.addEventListener("click", (e)=> {
       e.preventDefault();
       fillImagePopup(data);
-      formToggle(imagePopup);
-      overlayCloseClick();
+      formOpen(imagePopup);
+      setOverlayListeners();
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
@@ -107,85 +124,57 @@ initialCards.forEach((data) => {
 //overlay listeners
 
 function closeParentForm(evt) {
-  formToggle(evt.target.closest(".form"));
+  formClose(evt.target.closest(".form"));
   evt.target.removeEventListener("click", closeParentForm);
 }
 
-function overlayCloseClick() {
+function setOverlayListeners() {
   formOverlaysList.forEach((overlayElement) => {
    overlayElement.addEventListener("click", closeParentForm);
   }
 )};
-
-function overlayCloseEsc() {
-  formOverlaysList.forEach((overlayElement) => {
-    overlayElement.addEventListener("keydown", function (evt) {
-      if (evt.keyCode == 27) {
-        console.log("escape key pressed");
-        if (evt.target.closest.classList.contains("form_is-opened")) {
-          formToggle(evt.target.closest(".form"));
-        }
-      }
-      
-  // document.addEventListener("keydown", function (evt) {
-  //   if (evt.keyCode == 27) {
-      // if (form.classList.contains("form_is-opened")) {
-      //   formToggle(form);
-      //   }
-      //   else if (addForm.classList.contains("form_is-opened")) {
-      //     formToggle(addForm);
-      //     }
-      //   else {
-      //       formToggle(imagePopup);
-      //       }
-      
-    });
-  });
-}
-
-overlayCloseEsc();
 
 //button listeners start here
 
 saveButton.addEventListener("click", (e) => {
    e.preventDefault();
    editFormSave();
-   formToggle(form);
+   formClose(form);
 });
 
 closeButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(form);
+   formClose(form);
 });
 
 editButton.addEventListener("click", () => {
   //edited to match new figma requirements 
   //  formName.value = userName.textContent; 
   //  formOccupation.value = occupation.textContent; 
-   formToggle(form);
-   overlayCloseClick();
+   formOpen(form);
+   setOverlayListeners();
 })
 
 addButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(addForm);
-   overlayCloseClick();
+   formOpen(addForm);
+   setOverlayListeners();
 })
 
 addCardCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(addForm);
+   formClose(addForm);
 })
 
 saveCardButton.addEventListener("click", (e) => {
    e.preventDefault();
    renderCard({name: addFormTitle.value, link: addFormUrl.value});
-   formToggle(addForm);
+   formClose(addForm);
    addFormUrl.value = "";
    addFormTitle.value = "";
 });
 
 imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
-   formToggle(imagePopup);
+   formClose(imagePopup);
 });

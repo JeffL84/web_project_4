@@ -1,13 +1,13 @@
 // check for validity and show/hide error messages
 
-const showInputError = (formElement, inputElement, {errorClass, inputErrorClass, ...rest}) => {
+const showInputError = (formElement, inputElement, {errorClass, inputErrorClass}) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = inputElement.validationMessage;
   errorElement.classList.add(errorClass);
 };
 
-const hideInputError = (formElement, inputElement, {errorClass, inputErrorClass, ...rest}) => {
+const hideInputError = (formElement, inputElement, {errorClass, inputErrorClass}) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`)
   inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
@@ -30,9 +30,10 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass, ...rest}) => {
+const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass, errorClass}) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(inactiveButtonClass);
+    buttonElement.classList.add(errorClass);
   }
   else {
     buttonElement.classList.remove(inactiveButtonClass);
