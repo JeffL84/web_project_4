@@ -1,7 +1,6 @@
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
 const imagePopup = document.querySelector(".form_type_image");
-const editProfileForm = document.forms.profileForm;
 
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
@@ -82,6 +81,7 @@ const createCard = (data) => {
       e.preventDefault();
       fillImagePopup(data);
       formToggle(imagePopup);
+      overlayCloseClick();
    });
 
    cardRemoveButton.addEventListener("click", (evt)=> {
@@ -106,37 +106,40 @@ initialCards.forEach((data) => {
 
 //overlay listeners
 
-function overlayCloseClick() {
-  formOverlaysList.forEach((overlayElement) => {
-   overlayElement.addEventListener("click", function () {
-    if (form.classList.contains("form_is-opened")) {
-    formToggle(form);
-    }
-    else if (addForm.classList.contains("form_is-opened")) {
-      formToggle(addForm);
-      }
-    else {
-        formToggle(imagePopup);
-        }
-    });
-});
+function closeParentForm(evt) {
+  formToggle(evt.target.closest(".form"));
+  evt.target.removeEventListener("click", closeParentForm);
 }
 
-overlayCloseClick();
+function overlayCloseClick() {
+  formOverlaysList.forEach((overlayElement) => {
+   overlayElement.addEventListener("click", closeParentForm);
+  }
+)};
 
 function overlayCloseEsc() {
-  document.addEventListener("keydown", function (evt) {
-    if (evt.keyCode == 27) {
-      if (form.classList.contains("form_is-opened")) {
-        formToggle(form);
+  formOverlaysList.forEach((overlayElement) => {
+    overlayElement.addEventListener("keydown", function (evt) {
+      if (evt.keyCode == 27) {
+        console.log("escape key pressed");
+        if (evt.target.closest.classList.contains("form_is-opened")) {
+          formToggle(evt.target.closest(".form"));
         }
-        else if (addForm.classList.contains("form_is-opened")) {
-          formToggle(addForm);
-          }
-        else {
-            formToggle(imagePopup);
-            }
       }
+      
+  // document.addEventListener("keydown", function (evt) {
+  //   if (evt.keyCode == 27) {
+      // if (form.classList.contains("form_is-opened")) {
+      //   formToggle(form);
+      //   }
+      //   else if (addForm.classList.contains("form_is-opened")) {
+      //     formToggle(addForm);
+      //     }
+      //   else {
+      //       formToggle(imagePopup);
+      //       }
+      
+    });
   });
 }
 
@@ -160,11 +163,13 @@ editButton.addEventListener("click", () => {
   //  formName.value = userName.textContent; 
   //  formOccupation.value = occupation.textContent; 
    formToggle(form);
+   overlayCloseClick();
 })
 
 addButton.addEventListener("click", (e) => {
    e.preventDefault();
    formToggle(addForm);
+   overlayCloseClick();
 })
 
 addCardCloseButton.addEventListener("click", (e) => {
