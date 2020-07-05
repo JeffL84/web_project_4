@@ -1,3 +1,5 @@
+import {Card} from "./card.js";
+
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
 const imagePopup = document.querySelector(".form_type_image");
@@ -7,6 +9,7 @@ const occupation = document.querySelector(".profile__description");
 const formName = document.querySelector(".form__name-profile");
 const formOccupation = document.querySelector(".form__description-profile");
 
+//these are needed for the cards
 const addFormTitle = addForm.querySelector(".form__name-card");
 const addFormUrl = addForm.querySelector(".form__description-card");
 
@@ -14,11 +17,19 @@ const editButton = document.querySelector(".profile__edit-button");
 const saveButton = document.querySelector(".form__save-button");
 const closeButton = form.querySelector(".form__close-button");
 const addCardCloseButton = addForm.querySelector(".form__close-button");
+
+//this impacts the cards
 const saveCardButton = addForm.querySelector(".form__save-button");
+
+//this might be housed in the card since it is part of popup
 const imageCloseButton = imagePopup.querySelector(".form__close-button");
+
 const addButton = document.querySelector(".profile__add-button");
 
-const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
+//can probably remove this now that it has been revamped in card.js
+//const cardTemplate = document.querySelector(".elements__template").content.querySelector(".elements__element");
+
+
 const list = document.querySelector(".elements");
 
 const formOverlays = document.querySelectorAll(".form__overlay");
@@ -76,44 +87,18 @@ function editFormSave(){
     userName.textContent = formName.value; 
     occupation.textContent = formOccupation.value;
 }
+//moved to card.js - delete when working
+// function fillImagePopup(data) {
+//    const bigImage = imagePopup.querySelector(".big-image__picture");
+//       const bigImageCaption = imagePopup.querySelector(".big-image__caption");
+//       bigImage.src = data.link;
+//       bigImageCaption.textContent = data.name;
+//}
 
-function fillImagePopup(data) {
-   const bigImage = imagePopup.querySelector(".big-image__picture");
-      const bigImageCaption = imagePopup.querySelector(".big-image__caption");
-      bigImage.src = data.link;
-      bigImageCaption.textContent = data.name;
-}
-
-const createCard = (data) => {
-   const cardElement = cardTemplate.cloneNode(true);
-   const cardImage = cardElement.querySelector(".elements__image");
-   const cardTitle = cardElement.querySelector(".elements__name");
-   const cardLikeButton = cardElement.querySelector(".elements__heart-icon");
-   const cardRemoveButton = cardElement.querySelector(".elements__trash-icon");
-
-   cardTitle.textContent = data.name;
-   cardImage.style.backgroundImage = `url(${data.link})`;
-
-   cardImage.addEventListener("click", (e)=> {
-      e.preventDefault();
-      fillImagePopup(data);
-      formOpen(imagePopup);
-      setOverlayListeners();
-   });
-
-   cardRemoveButton.addEventListener("click", (evt)=> {
-     evt.target.closest(".elements__element").remove();
-   });
-
-   cardLikeButton.addEventListener("click", ()=> {
-      cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
-   });
-
-   return cardElement;
-};
-
+//rewrote this without create card function - replaced with call to create a new instance of the card class
 const renderCard = (data) => {
-   list.prepend(createCard(data));
+  const card = new Card(data, ".elements__template");
+   list.prepend(card);
 };
 
 
@@ -178,3 +163,5 @@ imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formClose(imagePopup);
 });
+
+export {formOpen, setOverlayListeners};
