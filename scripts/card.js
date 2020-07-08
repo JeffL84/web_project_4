@@ -1,13 +1,20 @@
-import {formOpen, setOverlayListeners} from "./index.js";
+import { handleEscUp, setOverlayListeners} from "./index.js";
+
+function formOpen(modal) {
+  modal.classList.add("form_is-opened");
+  document.addEventListener("keyup", handleEscUp);
+}
+
+function formClose(modal) {
+  modal.classList.remove("form_is-opened");
+  document.removeEventListener("keyup", handleEscUp);
+}
 
 class Card {
   constructor(data, templateSelector) {
-    this._title = data.text;
-    this._image = data.link;
+    this._title = data.name;
+    this._link = data.link;
     this._template = templateSelector;
-    this._cardElement = this._getTemplate();
-    this._cardLikeButton = this._cardElement.querySelector(".elements__heart-icon");
-    this._cardRemoveButton = this._cardElement.querySelector(".elements__trash-icon");
   }
 
     _getTemplate() {
@@ -21,40 +28,47 @@ class Card {
     }
 
     generateCard() {
+      const element = this._getTemplate();
+
+      this._card = element;
+      this._card.querySelector(".elements__image").style.backgroundImage = `url(${this._link})`;
+      this._card.querySelector(".elements__name").textContent = this._title;
+
       this._setEventListeners();
-      this._cardElement.querySelector(".elements__image").style.backgroundImage = `url(${this._image})`;
-      this._cardElement.querySelector(".elements__name").textContent = this._title;
-      console.log(this._cardElement);
-      return this._cardElement;
+      return this._card;
     }
 
-   _fillImagePopup(data) {
+   _fillImagePopup() {
       this._bigImage = document.querySelector(".big-image__picture");
       this._bigImageCaption = document.querySelector(".big-image__caption");
-      this._bigImage.src = this._image;
+      this._bigImage.src = this._link;
       this._bigImageCaption.textContent = this._title;
    }
     
   _setEventListeners() {
 
+    const cardLikeButton = this._card.querySelector(".elements__heart-icon");
+    const cardRemoveButton = this._card.querySelector(".elements__trash-icon");
+    const cardImage = this._card.querySelector(".elements__image")
+
     //this is for the popup - either need to import/export functionality or move elsewhere...
-  this._cardImage.addEventListener("click", (e)=> {
+  cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
-    fillImagePopup(data);
+    this._fillImagePopup();
     formOpen(document.querySelector(".form_type_image")); //changed this from imagepopup since variable is not defined here
     setOverlayListeners();
  });
 
- this._cardRemoveButton.addEventListener("click", (evt)=> {
+ cardRemoveButton.addEventListener("click", (evt)=> {
    evt.target.closest(".elements__element").remove();
  });
 
- this._cardLikeButton.addEventListener("click", ()=> {
-    this._cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
+ cardLikeButton.addEventListener("click", ()=> {
+    cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
  });
   
 
 }
 }
 
-export {Card};
+export default Card;
