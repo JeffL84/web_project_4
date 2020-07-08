@@ -1,4 +1,27 @@
 import Card from "./card.js";
+import FormValidator from "./FormValidator.js";
+
+const defaultConfig = {
+  inputSelector: ".form__input", 
+  submitButtonSelector: ".form__save-button", 
+  inactiveButtonClass: "form__save-button_type_inactive", 
+  inputErrorClass: "form__input_type_error", 
+  errorClass: "form__input-error_active"
+}
+
+const editFormModalWindow = document.querySelector('.form_type_edit-profile');
+const cardFormModalWindow = document.querySelector('.form_type_add-card');
+
+const editProfileForm = editFormModalWindow.querySelector(".form__container");
+const addCardForm = cardFormModalWindow.querySelector(".form__container");
+
+const editProfileValidattion = new FormValidator(defaultConfig, editProfileForm);
+const addCardValidattion = new FormValidator(defaultConfig, addCardForm);
+
+editProfileValidattion.enableValidation();
+addCardValidattion.enableValidation();
+
+//attempt at using formValidator class above...not doing anything eyt...and no error messages :(
 
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
