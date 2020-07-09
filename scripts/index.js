@@ -15,11 +15,11 @@ const cardFormModalWindow = document.querySelector('.form_type_add-card');
 const editProfileForm = editFormModalWindow.querySelector(".form__container");
 const addCardForm = cardFormModalWindow.querySelector(".form__container");
 
-const editProfileValidattion = new FormValidator(defaultConfig, editProfileForm);
-const addCardValidattion = new FormValidator(defaultConfig, addCardForm);
+const editProfileValidation = new FormValidator(defaultConfig, editProfileForm);
+const addCardValidation = new FormValidator(defaultConfig, addCardForm);
 
-editProfileValidattion.enableValidation();
-addCardValidattion.enableValidation();
+editProfileValidation.enableValidation();
+addCardValidation.enableValidation();
 
 //attempt at using formValidator class above...not doing anything eyt...and no error messages :(
 
