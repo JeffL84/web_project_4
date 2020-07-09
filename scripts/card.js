@@ -1,13 +1,8 @@
-import { handleEscUp, setOverlayListeners} from "./index.js";
+import { handleEscUp, setOverlayListeners, fillImagePopup} from "./utils.js";
 
 function formOpen(modal) {
   modal.classList.add("form_is-opened");
   document.addEventListener("keyup", handleEscUp);
-}
-
-function formClose(modal) {
-  modal.classList.remove("form_is-opened");
-  document.removeEventListener("keyup", handleEscUp);
 }
 
 class Card {
@@ -37,13 +32,6 @@ class Card {
       this._setEventListeners();
       return this._card;
     }
-
-   _fillImagePopup() {
-      this._bigImage = document.querySelector(".big-image__picture");
-      this._bigImageCaption = document.querySelector(".big-image__caption");
-      this._bigImage.src = this._link;
-      this._bigImageCaption.textContent = this._title;
-   }
     
   _setEventListeners() {
 
@@ -53,7 +41,7 @@ class Card {
 
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
-    this._fillImagePopup();
+    fillImagePopup(this._link, this._title);
     formOpen(document.querySelector(".form_type_image")); 
     setOverlayListeners();
  });

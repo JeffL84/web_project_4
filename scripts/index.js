@@ -167,4 +167,4 @@ imageCloseButton.addEventListener("click", (e) => {
    formClose(imagePopup);
 });
 
-export { handleEscUp, setOverlayListeners };
+export { formOverlaysList, closeParentForm, formClose };
