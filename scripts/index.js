@@ -21,8 +21,6 @@ const addCardValidation = new FormValidator(defaultConfig, addCardForm);
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
-//attempt at using formValidator class above...not doing anything eyt...and no error messages :(
-
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
 const imagePopup = document.querySelector(".form_type_image");
@@ -114,7 +112,6 @@ initialCards.forEach((data) => {
 });
 
 //overlay listeners
-
 function closeParentForm(evt) {
   formClose(evt.target.closest(".form"));
   evt.target.removeEventListener("click", closeParentForm);
@@ -127,7 +124,6 @@ function setOverlayListeners() {
 )};
 
 //button listeners start here
-
 saveButton.addEventListener("click", (e) => {
    e.preventDefault();
    editFormSave();

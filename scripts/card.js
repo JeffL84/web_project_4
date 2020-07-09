@@ -51,11 +51,10 @@ class Card {
     const cardRemoveButton = this._card.querySelector(".elements__trash-icon");
     const cardImage = this._card.querySelector(".elements__image")
 
-    //this is for the popup - either need to import/export functionality or move elsewhere...
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
     this._fillImagePopup();
-    formOpen(document.querySelector(".form_type_image")); //changed this from imagepopup since variable is not defined here
+    formOpen(document.querySelector(".form_type_image")); 
     setOverlayListeners();
  });
 
@@ -66,8 +65,6 @@ class Card {
  cardLikeButton.addEventListener("click", ()=> {
     cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
  });
-  
-
 }
 }
 
