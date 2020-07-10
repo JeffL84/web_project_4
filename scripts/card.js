@@ -1,9 +1,4 @@
-import { handleEscUp, setOverlayListeners, fillImagePopup} from "./utils.js";
-
-function formOpen(modal) {
-  modal.classList.add("form_is-opened");
-  document.addEventListener("keyup", handleEscUp);
-}
+import { formOpen, setOverlayListeners, fillImagePopup} from "./utils.js";
 
 class Card {
   constructor(data, templateSelector) {

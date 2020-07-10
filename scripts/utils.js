@@ -1,10 +1,26 @@
-import { formOverlaysList, closeParentForm, formClose } from "./index.js";
+const formOverlays = document.querySelectorAll(".form__overlay");
+const formOverlaysList = Array.from(formOverlays);
+
+function formOpen(modal) {
+  modal.classList.add("form_is-opened");
+  document.addEventListener("keyup", handleEscUp);
+}
+
+function formClose(modal) {
+  modal.classList.remove("form_is-opened");
+  document.removeEventListener("keyup", handleEscUp);
+}
 
 function setOverlayListeners() {
   formOverlaysList.forEach((overlayElement) => {
    overlayElement.addEventListener("click", closeParentForm);
   }
 )};
+
+function closeParentForm(evt) {
+  formClose(evt.target.closest(".form"));
+  evt.target.removeEventListener("click", closeParentForm);
+}
 
 function handleEscUp(evt) {
   const formsList = Array.from(document.querySelectorAll(".form"));
@@ -24,4 +40,4 @@ function fillImagePopup(link, title) {
   bigImageCaption.textContent = title;
 }
 
-export {fillImagePopup, handleEscUp, setOverlayListeners};
+export {fillImagePopup, formOpen, formClose, setOverlayListeners, closeParentForm, handleEscUp, formOverlaysList};

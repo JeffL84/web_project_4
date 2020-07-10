@@ -1,5 +1,6 @@
 import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
+import {formOpen, formClose, formOverlaysList, closeParentForm } from "./utils.js";
 
 const defaultConfig = {
   inputSelector: ".form__input", 
@@ -46,8 +47,10 @@ const addButton = document.querySelector(".profile__add-button");
 
 const list = document.querySelector(".elements");
 
-const formOverlays = document.querySelectorAll(".form__overlay");
-const formOverlaysList = Array.from(formOverlays);
+//moved to utils.js
+// const formOverlays = document.querySelectorAll(".form__overlay");
+// const formOverlaysList = Array.from(formOverlays);
+const ESCKEYCODE = 27;
 
 const initialCards = [
    {
@@ -76,25 +79,26 @@ const initialCards = [
    }
 ];
 
+// moved to utils.js
+// function formOpen(modal) {
+//   modal.classList.add("form_is-opened");
+//   document.addEventListener("keyup", handleEscUp);
+// }
+
+// function formClose(modal) {
+//   modal.classList.remove("form_is-opened");
+//   document.removeEventListener("keyup", handleEscUp);
+// }
+
 function handleEscUp(evt) {
   const formsList = Array.from(document.querySelectorAll(".form"));
-    if (evt.keyCode == 27) {
+    if (evt.keyCode == ESCKEYCODE) {
       formsList.forEach((modal) => {
           if (modal.classList.contains("form_is-opened")) {
             formClose(modal);
         }
         }); 
       }
-}
-
-function formOpen(modal) {
-  modal.classList.add("form_is-opened");
-  document.addEventListener("keyup", handleEscUp);
-}
-
-function formClose(modal) {
-  modal.classList.remove("form_is-opened");
-  document.removeEventListener("keyup", handleEscUp);
 }
 
 function editFormSave(){
@@ -112,10 +116,11 @@ initialCards.forEach((data) => {
 });
 
 //overlay listeners
-function closeParentForm(evt) {
-  formClose(evt.target.closest(".form"));
-  evt.target.removeEventListener("click", closeParentForm);
-}
+// moved to utils.js
+// function closeParentForm(evt) {
+//   formClose(evt.target.closest(".form"));
+//   evt.target.removeEventListener("click", closeParentForm);
+// }
 
 function setOverlayListeners() {
   formOverlaysList.forEach((overlayElement) => {
@@ -166,5 +171,3 @@ imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
    formClose(imagePopup);
 });
-
-export { formOverlaysList, closeParentForm, formClose };
