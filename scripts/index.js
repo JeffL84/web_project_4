@@ -1,6 +1,12 @@
 import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
 import {formOpen, formClose, formOverlaysList, closeParentForm } from "./utils.js";
+import Popup from "./Popup.js";
+
+
+//new instances of Popus classes - NEED TO FIGURE OUT WHEN THEY ARE USED...
+const editProfilePopup = new Popup(".form_type_edit-profile");
+const addCardPopup = new Popup(".form_type_add-card");
 
 const defaultConfig = {
   inputSelector: ".form__input", 
@@ -90,6 +96,7 @@ const initialCards = [
 //   document.removeEventListener("keyup", handleEscUp);
 // }
 
+//this will likely be reomoved once handleesc is written into popup...
 function handleEscUp(evt) {
   const formsList = Array.from(document.querySelectorAll(".form"));
     if (evt.keyCode == ESCKEYCODE) {
@@ -107,7 +114,9 @@ function editFormSave(){
 }
 //new rewritten function using the Card class
 const renderCard = (data) => {
-  const card = new Card(data, ".elements__template");
+  const card = new Card(data, ".elements__template", function() {
+    bigImagePopup.open();
+  });
   list.prepend(card.generateCard());
 };
 

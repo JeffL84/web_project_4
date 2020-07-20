@@ -1,9 +1,12 @@
-import { formOpen, setOverlayListeners, fillImagePopup} from "./utils.js";
+import { formOpen, setOverlayListeners, fillImagePopup, handleEscUp} from "./utils.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick)  {
     this._title = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
+
     this._template = templateSelector;
   }
 
@@ -36,9 +39,13 @@ class Card {
 
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
-    fillImagePopup(this._link, this._title);
-    formOpen(document.querySelector(".form_type_image")); 
-    setOverlayListeners();
+    //this might be where I call new popup with image instead of the next line
+    const bigImagePopup = new PopupWithImage(".form_type_image");
+    console.log(bigImagePopup);
+    //fillImagePopup(this._link, this._title); //commented out to replace with line above it
+    //formOpen(document.querySelector(".form_type_image")); 
+    this._handleCardClick();//at ~47:20 in live coding she adds this line
+    setOverlayListeners(); //Liza does NOT seem to have this in her code...
  });
 
  cardRemoveButton.addEventListener("click", (evt)=> {
