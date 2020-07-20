@@ -2,6 +2,11 @@ import Card from "./card.js";
 import FormValidator from "./FormValidator.js";
 import {formOpen, formClose, formOverlaysList, closeParentForm } from "./utils.js";
 import Popup from "./Popup.js";
+import PopupWithImage from "./PopupWithImage.js";
+
+
+//to create instances of the enlarged image popup
+const bigImagePopup = new PopupWithImage(".form_type_image");
 
 
 //new instances of Popus classes - NEED TO FIGURE OUT WHEN THEY ARE USED...
@@ -97,16 +102,16 @@ const initialCards = [
 // }
 
 //this will likely be reomoved once handleesc is written into popup...
-function handleEscUp(evt) {
-  const formsList = Array.from(document.querySelectorAll(".form"));
-    if (evt.keyCode == ESCKEYCODE) {
-      formsList.forEach((modal) => {
-          if (modal.classList.contains("form_is-opened")) {
-            formClose(modal);
-        }
-        }); 
-      }
-}
+// function handleEscUp(evt) {
+//   const formsList = Array.from(document.querySelectorAll(".form"));
+//     if (evt.keyCode == ESCKEYCODE) {
+//       formsList.forEach((modal) => {
+//           if (modal.classList.contains("form_is-opened")) {
+//             formClose(modal);
+//         }
+//         }); 
+//       }
+// }
 
 function editFormSave(){
     userName.textContent = formName.value; 
@@ -115,7 +120,7 @@ function editFormSave(){
 //new rewritten function using the Card class
 const renderCard = (data) => {
   const card = new Card(data, ".elements__template", function() {
-    bigImagePopup.open();
+    bigImagePopup.open(data);
   });
   list.prepend(card.generateCard());
 };

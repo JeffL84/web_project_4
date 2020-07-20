@@ -39,11 +39,7 @@ class Card {
 
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
-    //this might be where I call new popup with image instead of the next line
     const bigImagePopup = new PopupWithImage(".form_type_image");
-    console.log(bigImagePopup);
-    //fillImagePopup(this._link, this._title); //commented out to replace with line above it
-    //formOpen(document.querySelector(".form_type_image")); 
     this._handleCardClick();//at ~47:20 in live coding she adds this line
     setOverlayListeners(); //Liza does NOT seem to have this in her code...
  });
