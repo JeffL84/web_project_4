@@ -11,17 +11,25 @@ const bigImagePopup = new PopupWithImage(".form_type_image");
 
 //two instances of PopupWithForm
 
-const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function() {
-  userName.textContent = formName.value; 
-  occupation.textContent = formOccupation.value;
+const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function(array) {
+  console.log(array[0]);
+  userName.textContent = array[0].value; // original code   userName.textContent = formName.value; 
+  occupation.textContent = array[1].value; // original code   occupation.textContent = formOccupation.value;
 });
 
 const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function() {
-  //this was copied from card.js...need to be modified    
-  this._card = element;
-      this._card.querySelector(".elements__image").style.backgroundImage = `url(${this._link})`;
-      this._card.querySelector(".elements__name").textContent = this._title;
+  renderCard({name: addFormTitle.value, link: addFormUrl.value});
+  addFormUrl.value = "";
+  addFormTitle.value = "";
+  //this was copied from card.js...might need to be modified    
+  // this._card = element;
+  //     this._card.querySelector(".elements__image").style.backgroundImage = `url(${this._link})`;
+  //     this._card.querySelector(".elements__name").textContent = this._title;
 });
+
+addCardPopupWithForm.setEventListeners();
+profilePopupWithForm.setEventListeners();
+
 
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
@@ -69,6 +77,7 @@ const addFormTitle = addForm.querySelector(".form__name-card");
 const addFormUrl = addForm.querySelector(".form__description-card");
 
 const editButton = document.querySelector(".profile__edit-button");
+// moved to popup with form - possibly delete from here
 const saveButton = document.querySelector(".form__save-button");
 const closeButton = form.querySelector(".form__close-button");
 const addCardCloseButton = addForm.querySelector(".form__close-button");
@@ -148,13 +157,6 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
-//overlay listeners
-// moved to utils.js
-// function closeParentForm(evt) {
-//   formClose(evt.target.closest(".form"));
-//   evt.target.removeEventListener("click", closeParentForm);
-// }
-
 function setOverlayListeners() {
   formOverlaysList.forEach((overlayElement) => {
    overlayElement.addEventListener("click", closeParentForm);
@@ -162,11 +164,11 @@ function setOverlayListeners() {
 )};
 
 //button listeners start here
-saveButton.addEventListener("click", (e) => {
-   e.preventDefault();
-   editFormSave();
-   formClose(form);
-});
+// saveButton.addEventListener("click", (e) => {
+//    e.preventDefault();
+//    //editFormSave();
+//    formClose(form);
+// });
 
 closeButton.addEventListener("click", (e) => {
    e.preventDefault();
@@ -194,13 +196,13 @@ addCardCloseButton.addEventListener("click", (e) => {
    formClose(addForm);
 })
 
-saveCardButton.addEventListener("click", (e) => {
-   e.preventDefault();
-   renderCard({name: addFormTitle.value, link: addFormUrl.value});
-   formClose(addForm);
-   addFormUrl.value = "";
-   addFormTitle.value = "";
-});
+// saveCardButton.addEventListener("click", (e) => {
+//    e.preventDefault();
+//    renderCard({name: addFormTitle.value, link: addFormUrl.value});
+//    formClose(addForm);
+//    addFormUrl.value = "";
+//    addFormTitle.value = "";
+// });
 
 imageCloseButton.addEventListener("click", (e) => {
    e.preventDefault();
