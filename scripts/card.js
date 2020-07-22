@@ -40,7 +40,7 @@ class Card {
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
     const bigImagePopup = new PopupWithImage(".form_type_image");
-    this._handleCardClick();//at ~47:20 in live coding she adds this line
+    this._handleCardClick();
     setOverlayListeners(); //Liza does NOT seem to have this in her code...
  });
 

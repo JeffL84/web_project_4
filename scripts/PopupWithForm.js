@@ -1,7 +1,5 @@
 import Popup from "./Popup.js";
 
-//It takes a callback of the form submission into the constructor, as well as the popup selector.
-
 class PopupWithForm extends Popup {
   constructor(popupSelector, formSubmitFunction) {
     super(popupSelector);
@@ -9,7 +7,6 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues(){
-//collects data from input fields
     const inputList = Array.from(this._popupElement.querySelectorAll(".form__input")); 
     return inputList; 
   }
@@ -18,10 +15,9 @@ class PopupWithForm extends Popup {
     const saveButton = this._popupElement.querySelector(".form__save-button");
     const inputs = this._getInputValues();
     this._inputs = inputs;
-    console.log(this._inputs);
     saveButton.addEventListener("click", (e) => {
       e.preventDefault();
-      this._formSubmitFunction(this._inputs); //not sure how to pass values into it?
+      this._formSubmitFunction(this._inputs);
       this.close();
    });
 
