@@ -1,7 +1,6 @@
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
 
-
 const defaultConfig = {
   inputSelector: ".form__input", 
   submitButtonSelector: ".form__save-button", 
@@ -10,8 +9,8 @@ const defaultConfig = {
   errorClass: "form__input-error_active"
 }
 
-//const formName = document.querySelector(".form__name-profile");
-//const formOccupation = document.querySelector(".form__description-profile");
+const formName = document.querySelector(".form__name-profile");
+const formOccupation = document.querySelector(".form__description-profile");
 
 const form = document.querySelector(".form_type_edit-profile");
 const addForm = document.querySelector(".form_type_add-card");
@@ -70,4 +69,4 @@ const editProfileForm = editFormModalWindow.querySelector(".form__container");
 const addCardForm = cardFormModalWindow.querySelector(".form__container");
 
 
-export {userName, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };
+export {userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };

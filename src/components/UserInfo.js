@@ -4,11 +4,14 @@ class UserInfo{
       this._job = job;
   }
   getUserInfo(){
-   //is this supposed to relate to the profile section?
-   //maybe this takes what is already on the page for name and job and returns it?    
+    const userName = document.querySelector(this._name).textContent;
+    const userJob = document.querySelector(this._job).textContent;
+    return [userName, userJob];    
   }
-  setUserInfo(){
-      //if related to profile section maybe this adds it to the screen using the section class?
+  
+  setUserInfo(array){
+    document.querySelector(this._name).textContent = array[0];
+    document.querySelector(this._job).textContent = array[1];
   }
 }
 export default UserInfo ;
