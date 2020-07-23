@@ -40,4 +40,5 @@ function fillImagePopup(link, title) {
   bigImageCaption.textContent = title;
 }
 
+
 export {fillImagePopup, formOpen, formClose, setOverlayListeners, closeParentForm, handleEscUp, formOverlaysList};

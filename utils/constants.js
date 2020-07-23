@@ -70,4 +70,4 @@ const editProfileForm = editFormModalWindow.querySelector(".form__container");
 const addCardForm = cardFormModalWindow.querySelector(".form__container");
 
 
-export {userName, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };
+export {userName, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };

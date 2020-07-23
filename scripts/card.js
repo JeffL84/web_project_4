@@ -1,4 +1,4 @@
-import { formOpen, setOverlayListeners, fillImagePopup, handleEscUp} from "./utils.js";
+import { formOpen, setOverlayListeners, fillImagePopup, handleEscUp} from "../utils/utils.js";
 import PopupWithImage from "./PopupWithImage.js";
 
 class Card {
@@ -41,7 +41,7 @@ class Card {
     e.preventDefault();
     const bigImagePopup = new PopupWithImage(".form_type_image");
     this._handleCardClick();
-    setOverlayListeners(); //Liza does NOT seem to have this in her code...
+    setOverlayListeners(); 
  });
 
  cardRemoveButton.addEventListener("click", (evt)=> {
