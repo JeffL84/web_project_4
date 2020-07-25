@@ -7,7 +7,7 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import { formName, list, formOccupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
-//import "./pages/index.css";
+import "./pages/index.css";
 
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
