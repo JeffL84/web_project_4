@@ -39,7 +39,6 @@ class Card {
 
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
-    const bigImagePopup = new PopupWithImage(".form_type_image");
     this._handleCardClick();
     setOverlayListeners(); 
  });
