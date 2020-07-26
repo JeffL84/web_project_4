@@ -1,12 +1,11 @@
 import Card from "./components/card.js";
 import FormValidator from "./components/FormValidator.js";
-import {formOpen, formClose, setOverlayListeners, formOverlaysList, closeParentForm } from "./utils/utils.js";
-import Popup from "./components/Popup.js";
+import { setOverlayListeners } from "./utils/utils.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
-import { formName, list, formOccupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
+import { formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 
 //to create instances of the enlarged image popup

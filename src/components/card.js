@@ -1,5 +1,4 @@
-import { formOpen, setOverlayListeners, fillImagePopup, handleEscUp} from "../utils/utils.js";
-import PopupWithImage from "./PopupWithImage.js";
+import { setOverlayListeners } from "../utils/utils.js";
 
 class Card {
   constructor(data, templateSelector, handleCardClick)  {
