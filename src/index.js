@@ -7,6 +7,32 @@ import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 import { formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
+import Api from "./components/Api.js";
+
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-3", //changed 42 to 3
+  headers: {
+    authorization: "69eeb443-3163-42be-a4f6-357544c2977b", //used "token" from slack
+    "Content-Type": "application/json"
+  }
+});
+
+api.getCardList()
+.then(res => {
+  const cardList = new Section({
+    items: res, 
+    renderer: (data) => {
+    const cards = new Card(data, ".elements__template", function() {
+    bigImagePopup.open(data);
+    });
+    const cardElement = cards.generateCard();
+    cardList.addItem(cardElement);
+  }
+    },
+    ".elements");
+  
+  cardList.renderItems();
+});
 
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
@@ -47,19 +73,7 @@ const renderCard = (data) => {
 };
 
 //refactoring rendercard to be done by Section class  KEEP WORKING HERE
-const cardList = new Section({
-  items: initialCards, 
-  renderer: (data) => {
-  const cards = new Card(data, ".elements__template", function() {
-  bigImagePopup.open(data);
-  });
-  const cardElement = cards.generateCard();
-  cardList.addItem(cardElement);
-}
-  },
-  ".elements");
 
-cardList.renderItems();
 
 // function setOverlayListeners() {
 //   formOverlaysList.forEach((overlayElement) => {
