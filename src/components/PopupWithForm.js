@@ -7,16 +7,19 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues(){
-    const inputList = Array.from(this._popupElement.querySelectorAll(".form__input")); 
-    return inputList; 
+    const values = {};
+    const inputList = Array.from(this._popupElement.querySelectorAll(".form__input"));
+    inputList.forEach(input => values[input.name] = input.value);
+    console.log(values); 
+    return values; 
   }
 
   setEventListeners() {
     const saveButton = this._popupElement.querySelector(".form__save-button");
-    const inputs = this._getInputValues();
-    this._inputs = inputs;
     saveButton.addEventListener("click", (e) => {
       e.preventDefault();
+      const inputs = this._getInputValues();
+      this._inputs = inputs;
       this._formSubmitFunction(this._inputs);
       this.close();
    });

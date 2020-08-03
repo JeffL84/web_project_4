@@ -29,17 +29,16 @@ class Api {
     //Liza said this one was not described in the project ~20:45 in live coding
   }
 
-  addCard({ name, link }) {
+  addCard({ title, url }) {
     console.log(this._baseUrl + '/cards');
     return fetch(this._baseUrl + '/cards', {
       headers: this._headers, 
       method: "POST",
       body: JSON.stringify({
-        name,
-        link
+        name: title,
+        link: url
       })
     })
-    .then(console.log(res))
     .then(res => res.ok ? res.json() : Promise.reject('Error! ' + res.statusText))
     .catch(err => {
       console.log(err)
