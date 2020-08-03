@@ -34,6 +34,14 @@ api.getCardList()
   cardList.renderItems();
 });
 
+
+
+api.getUserInfo()
+.then(res => {
+  const myProfileInfo = new UserInfo(".profile__name", ".profile__description");
+  myProfileInfo.setUserInfo([res.name, res.about]);
+})
+
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
 
@@ -46,10 +54,20 @@ const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", functi
   //occupation.textContent = array[1].value; // original code   occupation.textContent = formOccupation.value;
 });
 
-const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function() {
-  renderCard({name: addFormTitle.value, link: addFormUrl.value});
-  addFormUrl.value = "";
-  addFormTitle.value = "";
+const renderCard = (data) => {
+  const cards = new Card(data, ".elements__template", function() {
+    bigImagePopup.open(data);
+    });
+  list.prepend(cards.generateCard());
+};
+
+const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function(data) {
+  api.addCard(data)
+  .then(data => {
+    renderCard(data);
+    addFormUrl.value = "";
+    addFormTitle.value = "";
+  })
 });
 
 addCardPopupWithForm.setEventListeners();
@@ -65,12 +83,6 @@ const addCardValidation = new FormValidator(defaultConfig, addCardForm);
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
-const renderCard = (data) => {
-  const cards = new Card(data, ".elements__template", function() {
-    bigImagePopup.open(data);
-    });
-  list.prepend(cards.generateCard());
-};
 
 //refactoring rendercard to be done by Section class  KEEP WORKING HERE
 
