@@ -8,6 +8,7 @@ import UserInfo from "./components/UserInfo.js";
 import { formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 import Api from "./components/Api.js";
+import Popup from "./components/Popup.js";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-3", //changed 42 to 3
@@ -19,11 +20,17 @@ const api = new Api({
 
 api.getCardList()
 .then(res => {
+  console.log(res);
   const cardList = new Section({
     items: res, 
     renderer: (data) => {
-    const cards = new Card(data, ".elements__template", function() {
+    const cards = new Card(data,
+       ".elements__template",
+        () => {
     bigImagePopup.open(data);
+    }, 
+    (cardID) => {
+      api.removeCard(cardID);
     });
     const cardElement = cards.generateCard();
     cardList.addItem(cardElement);
@@ -34,13 +41,15 @@ api.getCardList()
   cardList.renderItems();
 });
 
-
-
 api.getUserInfo()
 .then(res => {
   const myProfileInfo = new UserInfo(".profile__name", ".profile__description");
   myProfileInfo.setUserInfo([res.name, res.about]);
-})
+});
+
+//create instances of the popup to confirm delete
+const confirmDeletePopup = new Popup(".form_type_delete-card");
+console.log(confirmDeletePopup);
 
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
@@ -105,6 +114,17 @@ addButton.addEventListener("click", (e) => {
    addCardPopupWithForm.open();
    setOverlayListeners();
 })
+
+// const confirmDeleteButton = document.querySelector(".form__card-delete-confirm");
+
+// confirmDeleteButton.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   console.log(e.target);
+
+//   console.log(e.target.closest(".elements__element").getID());
+ 
+// })
+
 
 // addCardCloseButton.addEventListener("click", (e) => {
 //    e.preventDefault();

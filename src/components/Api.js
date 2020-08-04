@@ -30,7 +30,6 @@ class Api {
   }
 
   addCard({ title, url }) {
-    console.log(this._baseUrl + '/cards');
     return fetch(this._baseUrl + '/cards', {
       headers: this._headers, 
       method: "POST",
@@ -46,7 +45,14 @@ class Api {
   }
 
   removeCard(cardID) {
-
+    return fetch(this._baseUrl + '/cards/' + cardID, {
+      headers: this._headers, 
+      method: "DELETE"
+    })
+    .then(res => res.ok ? res.json() : Promise.reject('Error! ' + res.statusText))
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   changeLikeCardStatus(cardID, like) {

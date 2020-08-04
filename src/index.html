@@ -78,6 +78,20 @@
 
     </section>
 
+    <!-- adding new popup for deleting a card-->
+    <section class = "form form_type_delete-card form-with-button">
+
+      <div class = "form__overlay"></div>
+      <form class = "form__container">
+
+        <h2 class = "form__title">Are you sure?</h2>
+        <button class = "form__save-button form__card-delete-confirm hover hover_type_dark" type = "submit">Yes</button>
+        <button class = "form__close-button hover"></button>
+
+      </form>
+
+    </section>
+
     <section class = "form form_type_image">
 
       <div class = "form__overlay form__overlay_type_dark"></div>
@@ -104,6 +118,7 @@
 
     </footer>
 
+    <!--One thought for only having trash icon on my cards...two different templates-->
     <template class = "elements__template">
       <li class = "elements__element">
         <button class = "elements__trash-icon hover"></button>
