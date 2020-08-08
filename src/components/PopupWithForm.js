@@ -10,7 +10,6 @@ class PopupWithForm extends Popup {
     const values = {};
     const inputList = Array.from(this._popupElement.querySelectorAll(".form__input"));
     inputList.forEach(input => values[input.name] = input.value);
-    console.log(values); 
     return values; 
   }
 
@@ -25,6 +24,10 @@ class PopupWithForm extends Popup {
    });
 
 super.setEventListeners();
+  }
+
+  setDeleteHandler(handler) {
+    this._formSubmitFunction = handler;
   }
 
   close() {

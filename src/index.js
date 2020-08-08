@@ -1,11 +1,11 @@
 import Card from "./components/card.js";
 import FormValidator from "./components/FormValidator.js";
-import { setOverlayListeners } from "./utils/utils.js";
+import { setOverlayListeners, formOpen } from "./utils/utils.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
-import { formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
+import { cardDeleteConfirmForm, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 import Api from "./components/Api.js";
 import Popup from "./components/Popup.js";
@@ -18,19 +18,36 @@ const api = new Api({
   }
 });
 
+api.getAppInfo()
+.then(res => {
+    const userId = res._id;
+    console.log(userId);
+})
+
+const deleteForm = new PopupWithForm(".form_type_delete-card", () => {});
+deleteForm.setEventListeners();
+
+
 api.getCardList()
 .then(res => {
-  console.log(res);
+  //console.log(res);
   const cardList = new Section({
     items: res, 
     renderer: (data) => {
+      //console.log(data);
     const cards = new Card(data,
        ".elements__template",
-        () => {
+       //handleCardClick
+      () => {
     bigImagePopup.open(data);
     }, 
-    (cardID) => {
-      api.removeCard(cardID);
+    //handleDeleteClick
+     (cardID) => {
+       deleteForm.setDeleteHandler( ()=> {
+        api.removeCard(cardID);
+        cards.deleteCard();
+      })
+       
     });
     const cardElement = cards.generateCard();
     cardList.addItem(cardElement);
@@ -41,15 +58,13 @@ api.getCardList()
   cardList.renderItems();
 });
 
+
+
 api.getUserInfo()
 .then(res => {
   const myProfileInfo = new UserInfo(".profile__name", ".profile__description");
   myProfileInfo.setUserInfo([res.name, res.about]);
 });
-
-//create instances of the popup to confirm delete
-const confirmDeletePopup = new Popup(".form_type_delete-card");
-console.log(confirmDeletePopup);
 
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");

@@ -68,5 +68,7 @@ const cardFormModalWindow = document.querySelector('.form_type_add-card');
 const editProfileForm = editFormModalWindow.querySelector(".form__container");
 const addCardForm = cardFormModalWindow.querySelector(".form__container");
 
+const cardDeleteConfirmForm = document.querySelector(".form_type_delete-card");
 
-export {userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };
+
+export {cardDeleteConfirmForm, userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };

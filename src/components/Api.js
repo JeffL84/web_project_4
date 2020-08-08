@@ -26,6 +26,7 @@ class Api {
   }
 
   getAppInfo() {
+    return Promise.all([this.getCardList(), this.getUserInfo()]);
     //Liza said this one was not described in the project ~20:45 in live coding
   }
 

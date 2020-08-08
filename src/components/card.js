@@ -35,6 +35,12 @@ class Card {
       this._setEventListeners();
       return this._card;
     }
+
+    
+deleteCard() {
+  this._card.remove();
+  this._card = null;
+}
     
   _setEventListeners() {
 
@@ -42,7 +48,7 @@ class Card {
     const cardRemoveButton = this._card.querySelector(".elements__trash-icon");
     const cardImage = this._card.querySelector(".elements__image");
     const cardDeleteConfirmForm = document.querySelector(".form_type_delete-card");
-    const confirmDeleteButton = document.querySelector(".form__card-delete-confirm");
+    //const confirmDeleteButton = document.querySelector(".form__card-delete-confirm");
 
   cardImage.addEventListener("click", (e)=> {
     e.preventDefault();
@@ -51,11 +57,12 @@ class Card {
  });
 
  //modifying to make popup show up
- cardRemoveButton.addEventListener("click", (evt)=> {  //removed evt from parameter
-  //formOpen(cardDeleteConfirmForm);
-   evt.target.closest(".elements__element").remove();  //- move to popup confirm - where is that???
+ cardRemoveButton.addEventListener("click", ()=> {  //removed evt from parameter
+  formOpen(cardDeleteConfirmForm);
+   //evt.target.closest(".elements__element").remove();
    this._handleDeleteClick(this.getId());
  });
+
 
 
 // confirmDeleteButton.addEventListener("click", (e) => {
@@ -70,6 +77,11 @@ class Card {
     this.getId();
  });
 }
+
+
 }
+
+
+
 
 export default Card;
