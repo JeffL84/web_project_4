@@ -1,3 +1,5 @@
+@import url("./_is-hidden/elements__trash-icon_is-hidden.css");
+
 .elements__trash-icon {
   position: absolute;
   width: 21px;

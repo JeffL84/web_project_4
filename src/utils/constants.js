@@ -70,5 +70,6 @@ const addCardForm = cardFormModalWindow.querySelector(".form__container");
 
 const cardDeleteConfirmForm = document.querySelector(".form_type_delete-card");
 
+const MYID = "2f4b5732fb5bf9c6df4a9392";
 
-export {cardDeleteConfirmForm, userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };
+export {MYID, cardDeleteConfirmForm, userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };

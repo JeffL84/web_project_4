@@ -5,7 +5,7 @@ import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
-import { cardDeleteConfirmForm, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
+import { MYID, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 import Api from "./components/Api.js";
 import Popup from "./components/Popup.js";
@@ -18,11 +18,11 @@ const api = new Api({
   }
 });
 
-api.getAppInfo()
-.then(res => {
-    const userId = res._id;
-    console.log(userId);
-})
+// api.getAppInfo()
+// .then(res => {
+//     const userId = res._id;
+//     console.log(userId);
+// })
 
 const deleteForm = new PopupWithForm(".form_type_delete-card", () => {});
 deleteForm.setEventListeners();

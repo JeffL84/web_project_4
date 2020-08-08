@@ -1,4 +1,5 @@
 import { setOverlayListeners, formOpen } from "../utils/utils.js";
+import {MYID} from "../utils/constants.js";
 
 class Card {
   constructor(data, templateSelector, handleCardClick, handleDeleteClick)  {
@@ -6,6 +7,7 @@ class Card {
     this._link = data.link;
     this._handleCardClick = handleCardClick;
     this._id = data._id;
+    this._owner = data.owner._id;
     this._handleDeleteClick = handleDeleteClick;
 
     this._template = templateSelector;
@@ -29,10 +31,16 @@ class Card {
       const element = this._getTemplate();
 
       this._card = element;
+      //remove trash icon for cards that I didn't create
+      if (this._owner !== MYID) {
+         const hiddenTrashIcon = this._card.querySelector(".elements__trash-icon");
+         hiddenTrashIcon.classList.add("elements__trash-icon_is-hidden");
+      }
       this._card.querySelector(".elements__image").style.backgroundImage = `url(${this._link})`;
       this._card.querySelector(".elements__name").textContent = this._title;
 
       this._setEventListeners();
+      console.log(this._owner);
       return this._card;
     }
 
