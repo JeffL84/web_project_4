@@ -40,7 +40,6 @@ class Card {
       this._card.querySelector(".elements__name").textContent = this._title;
 
       this._setEventListeners();
-      console.log(this._owner);
       return this._card;
     }
 

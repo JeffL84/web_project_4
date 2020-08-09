@@ -27,7 +27,6 @@ const api = new Api({
 const deleteForm = new PopupWithForm(".form_type_delete-card", () => {});
 deleteForm.setEventListeners();
 
-
 api.getCardList()
 .then(res => {
   //console.log(res);
@@ -58,11 +57,10 @@ api.getCardList()
   cardList.renderItems();
 });
 
-
-
 api.getUserInfo()
 .then(res => {
   const myProfileInfo = new UserInfo(".profile__name", ".profile__description");
+  // console.log(res);
   myProfileInfo.setUserInfo([res.name, res.about]);
 });
 
@@ -73,9 +71,7 @@ const bigImagePopup = new PopupWithImage(".form_type_image");
 const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function() {
   const profileInfo = new UserInfo(".profile__name", ".profile__description");
   profileInfo.setUserInfo([formName.value, formOccupation.value]);
-  //next lines moved into SetUserInfo
-  //userName.textContent = array[0].value; // original code   userName.textContent = formName.value; 
-  //occupation.textContent = array[1].value; // original code   occupation.textContent = formOccupation.value;
+  api.setUserInfo(profileInfo.getUserInfo());
 });
 
 const renderCard = (data) => {
@@ -97,25 +93,11 @@ const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function(d
 addCardPopupWithForm.setEventListeners();
 profilePopupWithForm.setEventListeners();
 
-//new instances of Popus classes 
-//const editProfilePopup = new Popup(".form_type_edit-profile");
-//const addCardPopup = new Popup(".form_type_add-card");
-
 const editProfileValidation = new FormValidator(defaultConfig, editProfileForm);
 const addCardValidation = new FormValidator(defaultConfig, addCardForm);
 
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
-
-
-//refactoring rendercard to be done by Section class  KEEP WORKING HERE
-
-
-// function setOverlayListeners() {
-//   formOverlaysList.forEach((overlayElement) => {
-//    overlayElement.addEventListener("click", closeParentForm);
-//   }
-// )};
 
 //button listeners start here
 
@@ -130,23 +112,3 @@ addButton.addEventListener("click", (e) => {
    setOverlayListeners();
 })
 
-// const confirmDeleteButton = document.querySelector(".form__card-delete-confirm");
-
-// confirmDeleteButton.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   console.log(e.target);
-
-//   console.log(e.target.closest(".elements__element").getID());
- 
-// })
-
-
-// addCardCloseButton.addEventListener("click", (e) => {
-//    e.preventDefault();
-//    formClose(addForm);
-// })
-
-// imageCloseButton.addEventListener("click", (e) => {
-//    e.preventDefault();
-//    formClose(imagePopup);
-// });
