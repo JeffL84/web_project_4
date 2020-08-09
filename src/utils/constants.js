@@ -1,5 +1,6 @@
 const userName = document.querySelector(".profile__name");
 const occupation = document.querySelector(".profile__description");
+const avatarPhoto = document.querySelector(".profile__avatar");
 
 const defaultConfig = {
   inputSelector: ".form__input", 
@@ -72,4 +73,4 @@ const cardDeleteConfirmForm = document.querySelector(".form_type_delete-card");
 
 const MYID = "2f4b5732fb5bf9c6df4a9392";
 
-export {MYID, cardDeleteConfirmForm, userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };
+export {avatarPhoto, MYID, cardDeleteConfirmForm, userName, formName, formOccupation, list, occupation, defaultConfig, addForm, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm };

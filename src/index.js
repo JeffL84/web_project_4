@@ -5,7 +5,7 @@ import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
-import { MYID, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
+import { avatarPhoto, MYID, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 import Api from "./components/Api.js";
 import Popup from "./components/Popup.js";
@@ -67,7 +67,7 @@ api.getUserInfo()
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
 
-//two instances of PopupWithForm
+//three instances of PopupWithForm
 const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function() {
   const profileInfo = new UserInfo(".profile__name", ".profile__description");
   profileInfo.setUserInfo([formName.value, formOccupation.value]);
@@ -80,6 +80,19 @@ const renderCard = (data) => {
     });
   list.prepend(cards.generateCard());
 };
+
+const changeAvatarPopup = new PopupWithForm(".form_type_change-avatar", function(data) {
+  console.log(data.url);
+  api.setUserAvatar(data.url)
+  .then(res => {
+    console.log(res);
+    console.log(res.avatar);
+    //res.avatar.src = res.avatar;
+    avatarPhoto.src = res.avatar;
+  });
+});
+
+changeAvatarPopup.setEventListeners();
 
 const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function(data) {
   api.addCard(data)
@@ -110,5 +123,10 @@ addButton.addEventListener("click", (e) => {
    e.preventDefault();
    addCardPopupWithForm.open();
    setOverlayListeners();
+})
+
+avatarPhoto.addEventListener("click", ()=> {
+  changeAvatarPopup.open();
+  setOverlayListeners();
 })
 

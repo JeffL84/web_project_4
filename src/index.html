@@ -22,7 +22,7 @@
 
       <div class = "profile__section">
        
-        <img class = "profile__avatar" src = "images/Jaques.jpg" alt = "Jaques Couteau">
+        <img class = "profile__avatar hover_type_edit" src = "images/Jaques.jpg" alt = "My avatar">
      
         <div class = "profile__info">
     
@@ -86,6 +86,22 @@
 
         <h2 class = "form__title">Are you sure?</h2>
         <button class = "form__save-button form__card-delete-confirm hover hover_type_dark" type = "submit">Yes</button>
+        <button class = "form__close-button hover"></button>
+
+      </form>
+
+    </section>
+
+    <!-- adding new popup for editing the avatar photo-->
+    <section class = "form form_type_change-avatar form-with-button">
+
+      <div class = "form__overlay"></div>
+      <form class = "form__container">
+
+        <h2 class = "form__title">Change profile picture</h2>
+        <input class = "form__description form__description-card form__input" type = "url" id = "url" name = "url" placeholder = "Image link" required>
+        <span id ="url-error" class = "form__input-error"></span>
+        <button class = "form__save-button form__avatar-confirm hover hover_type_dark" type = "submit">Save</button>
         <button class = "form__close-button hover"></button>
 
       </form>
