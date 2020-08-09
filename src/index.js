@@ -59,18 +59,20 @@ api.getCardList()
 
 api.getUserInfo()
 .then(res => {
-  const myProfileInfo = new UserInfo(".profile__name", ".profile__description");
+  const myProfileInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
   // console.log(res);
-  myProfileInfo.setUserInfo([res.name, res.about]);
+  myProfileInfo.setUserInfo([res.name, res.job, res.avatar]);
 });
 
 //to create instances of the enlarged image popup
 const bigImagePopup = new PopupWithImage(".form_type_image");
 
+
+const profileInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
 //three instances of PopupWithForm
 const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function() {
-  const profileInfo = new UserInfo(".profile__name", ".profile__description");
-  profileInfo.setUserInfo([formName.value, formOccupation.value]);
+  //const profileInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
+  profileInfo.setUserInfo([formName.value, formOccupation.value, avatarPhoto.src]);
   api.setUserInfo(profileInfo.getUserInfo());
 });
 
@@ -85,10 +87,11 @@ const changeAvatarPopup = new PopupWithForm(".form_type_change-avatar", function
   console.log(data.url);
   api.setUserAvatar(data.url)
   .then(res => {
+    avatarPhoto.src = res.avatar;
     console.log(res);
     console.log(res.avatar);
-    //res.avatar.src = res.avatar;
-    avatarPhoto.src = res.avatar;
+    profileInfo.changeUserAvatar(res.avatar);
+    
   });
 });
 
