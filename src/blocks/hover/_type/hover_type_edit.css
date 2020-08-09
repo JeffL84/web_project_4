@@ -1,3 +1,8 @@
 .hover_type_edit {
-  
+  position: absolute;
+  top: calc(50% - 14px);
+  right: calc(50% - 14px);
+  align-self: center;
+  opacity: 0;
 }
+

@@ -4,3 +4,16 @@
   width: 120px; 
   align-self: center; 
 }
+
+.profile__avatar:hover {
+  opacity: .6;
+  background-image: url("../../../images/EditAvatarIcon.png");
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar:hover .hover_type_edit {
+  opacity: 1;
+}

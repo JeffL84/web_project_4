@@ -1,3 +1,5 @@
+@import url("./_type/hover_type_edit.css");
+
 .hover:hover {
   opacity: .6;
   cursor: pointer;
