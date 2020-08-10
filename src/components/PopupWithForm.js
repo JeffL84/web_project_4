@@ -31,11 +31,6 @@ super.setEventListeners();
     this._formSubmitFunction = handler;
   }
 
-  close() {
-//It modifies the close() parent method in order to reset the form once the popup is closed.
-    super.close();
-  }
-
 }
 
 export default PopupWithForm;

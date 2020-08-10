@@ -6,7 +6,7 @@ class Api {
 
 
   getUserInfo() {
-    return fetch(this._baseUrl + '/users/me', {
+    return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
     .then(res => res.ok ? res.json() : Promise.reject('Error! ' + res.statusText))
@@ -16,7 +16,7 @@ class Api {
   }
 
   getCardList() {
-    return fetch(this._baseUrl + '/cards', {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
     .then(res => res.ok ? res.json() : Promise.reject('Error! ' + res.statusText))
@@ -31,7 +31,7 @@ class Api {
   }
 
   addCard({ title, url }) {
-    return fetch(this._baseUrl + '/cards', {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers, 
       method: "POST",
       body: JSON.stringify({
@@ -46,7 +46,7 @@ class Api {
   }
 
   removeCard(cardID) {
-    return fetch(this._baseUrl + '/cards/' + cardID, {
+    return fetch(`${this._baseUrl}/cards/${cardID}`, {
       headers: this._headers, 
       method: "DELETE"
     })
@@ -57,11 +57,11 @@ class Api {
   }
 
   changeLikeCardStatus(cardID, like) {
-    return ((like ? fetch(this._baseUrl + '/cards/likes/' + cardID, {
+    return ((like ? fetch(`${this._baseUrl}/cards/likes/${cardID}`, {
       headers: this._headers,
       method: "PUT"
   })
-  : fetch(this._baseUrl + '/cards/likes/' + cardID, {
+  : fetch(`${this._baseUrl}/cards/likes/${cardID}`, {
       headers: this._headers,
       method: "DELETE"
   }))
@@ -71,7 +71,7 @@ class Api {
   }
 
   setUserInfo([ name, about, avatar ]) { //name and about might be different in mine
-    return fetch(this._baseUrl + '/users/me' , {
+    return fetch(`${this._baseUrl}/users/me` , {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
@@ -88,7 +88,7 @@ class Api {
   }
 
   setUserAvatar( avatar ) {
-    return fetch(this._baseUrl + '/users/me/avatar' , {
+    return fetch(`${this._baseUrl}/users/me/avatar` , {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({

@@ -1,14 +1,13 @@
 import Card from "./components/card.js";
 import FormValidator from "./components/FormValidator.js";
-import { setOverlayListeners, formOpen } from "./utils/utils.js";
+import { setOverlayListeners } from "./utils/utils.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
-import { avatarPhoto, MYID, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, initialCards, editProfileForm, addCardForm } from "./utils/constants.js";
+import { avatarPhoto, MYID, formName, list, formOccupation, defaultConfig, addFormTitle, addFormUrl, editButton, addButton, editProfileForm, addCardForm } from "./utils/constants.js";
 import "./pages/index.css";
 import Api from "./components/Api.js";
-import Popup from "./components/Popup.js";
 
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-3", //changed 42 to 3
@@ -28,10 +27,9 @@ const deleteForm = new PopupWithForm(".form_type_delete-card", () => {});
 deleteForm.setEventListeners();
 
 api.getCardList()
-.then(res => {
-  console.log(res);
+.then(result => {
   const cardList = new Section({
-    items: res, 
+    items: result, 
     renderer: (data) => {
       //console.log(data);
     const cards = new Card(data,
@@ -97,37 +95,33 @@ const bigImagePopup = new PopupWithImage(".form_type_image");
 
 const profileInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
 //three instances of PopupWithForm
-const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", function() {
+const profilePopupWithForm = new PopupWithForm(".form_type_edit-profile", () => {
   //const profileInfo = new UserInfo(".profile__name", ".profile__description", ".profile__avatar");
   profileInfo.setUserInfo([formName.value, formOccupation.value, avatarPhoto.src]);
   api.setUserInfo(profileInfo.getUserInfo());
 });
 
 const renderCard = (data) => {
-  const cards = new Card(data, ".elements__template", function() {
+  const cards = new Card(data, ".elements__template", () => {
     bigImagePopup.open(data);
     });
   list.prepend(cards.generateCard());
 };
 
-const changeAvatarPopup = new PopupWithForm(".form_type_change-avatar", function(data) {
-  console.log(data.url);
+const changeAvatarPopup = new PopupWithForm(".form_type_change-avatar", (data) => {
   api.setUserAvatar(data.url)
   .then(res => {
     avatarPhoto.src = res.avatar;
-    console.log(res);
-    console.log(res.avatar);
     profileInfo.changeUserAvatar(res.avatar);
-    
   });
 });
 
 changeAvatarPopup.setEventListeners();
 
-const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", function(data) {
+const addCardPopupWithForm = new PopupWithForm(".form_type_add-card", (data) => {
   api.addCard(data)
-  .then(data => {
-    renderCard(data);
+  .then(res => {
+    renderCard(res);
     addFormUrl.value = "";
     addFormTitle.value = "";
   })
