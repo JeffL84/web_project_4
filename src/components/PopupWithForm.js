@@ -19,6 +19,7 @@ class PopupWithForm extends Popup {
       e.preventDefault();
       const inputs = this._getInputValues();
       this._inputs = inputs;
+      saveButton.textContent = "Saving...";
       this._formSubmitFunction(this._inputs);
       this.close();
    });
