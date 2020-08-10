@@ -57,7 +57,17 @@ class Api {
   }
 
   changeLikeCardStatus(cardID, like) {
-
+    return ((like ? fetch(this._baseUrl + '/cards/likes/' + cardID, {
+      headers: this._headers,
+      method: "PUT"
+  })
+  : fetch(this._baseUrl + '/cards/likes/' + cardID, {
+      headers: this._headers,
+      method: "DELETE"
+  }))
+      .then(res => res.ok ? res.json() : Promise.reject('Error' + res.statusText))
+      .catch(err => console.log(err))
+  );
   }
 
   setUserInfo([ name, about, avatar ]) { //name and about might be different in mine

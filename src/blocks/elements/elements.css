@@ -5,6 +5,8 @@
 @import url("./__heart-icon/elements__heart-icon.css");
 @import url("./__trash-icon/elements__trash-icon.css");
 @import url("./__heart-icon/_theme/elements__heart-icon_theme_dark.css");
+@import url("./__like-count/elements__like-count.css");
+@import url("./__like-section/elements__like-section.css");
 
 
 .elements {

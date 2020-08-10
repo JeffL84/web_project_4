@@ -29,7 +29,7 @@ deleteForm.setEventListeners();
 
 api.getCardList()
 .then(res => {
-  //console.log(res);
+  console.log(res);
   const cardList = new Section({
     items: res, 
     renderer: (data) => {
@@ -46,8 +46,35 @@ api.getCardList()
         api.removeCard(cardID);
         cards.deleteCard();
       })
-       
-    });
+    }, 
+    //handleLikeClick
+    (cardID) => {
+      if(cards.alreadyLiked() === false) {
+        api.changeLikeCardStatus(cardID, true)
+        .then(res => {
+          const likeCount = res.likes.length;
+          cards.like(likeCount);
+        })
+      }
+      else {
+        api.changeLikeCardStatus(cardID, false) 
+          .then(res => {
+            const likeCount = res.likes.length;
+            cards.dislike(likeCount);
+          })
+      }
+    }, 
+    //handleLikeIcon
+    ()=> {
+      if(data.likes.length > 0) {
+        data.likes.forEach(like => {
+          if(like._id === MYID) {
+            cards.alreadyLiked();
+          }
+        })
+      }
+    }
+    );
     const cardElement = cards.generateCard();
     cardList.addItem(cardElement);
   }

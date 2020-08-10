@@ -2,13 +2,15 @@ import { setOverlayListeners, formOpen } from "../utils/utils.js";
 import {MYID} from "../utils/constants.js";
 
 class Card {
-  constructor(data, templateSelector, handleCardClick, handleDeleteClick)  {
+  constructor(data, templateSelector, handleCardClick, handleDeleteClick, handleLikeClick, handleLikeIcon)  {
     this._title = data.name;
     this._link = data.link;
     this._handleCardClick = handleCardClick;
     this._id = data._id;
     this._owner = data.owner._id;
     this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
+    this._handleLikeIcon = handleLikeIcon;
 
     this._template = templateSelector;
   }
@@ -40,6 +42,7 @@ class Card {
       this._card.querySelector(".elements__name").textContent = this._title;
 
       this._setEventListeners();
+      this._handleLikeIcon(); //not sure I want this here...
       return this._card;
     }
 
@@ -49,9 +52,12 @@ deleteCard() {
   this._card = null;
 }
     
+_cardLikeButton() {
+  return this._card.querySelector(".elements__heart-icon");
+}
+
   _setEventListeners() {
 
-    const cardLikeButton = this._card.querySelector(".elements__heart-icon");
     const cardRemoveButton = this._card.querySelector(".elements__trash-icon");
     const cardImage = this._card.querySelector(".elements__image");
     const cardDeleteConfirmForm = document.querySelector(".form_type_delete-card");
@@ -70,8 +76,6 @@ deleteCard() {
    this._handleDeleteClick(this.getId());
  });
 
-
-
 // confirmDeleteButton.addEventListener("click", (e) => {
 //   e.preventDefault();
 //  this._handleDeleteClick(this.getId());
@@ -79,16 +83,34 @@ deleteCard() {
  
 // })
 
- cardLikeButton.addEventListener("click", ()=> {
-    cardLikeButton.classList.toggle("elements__heart-icon_theme_dark");
-    this.getId();
+ this._cardLikeButton().addEventListener("click", ()=> {
+    this._handleLikeClick(this.getId());
+    this._cardLikeButton().classList.toggle("elements__heart-icon_theme_dark");
  });
 }
 
-
+_photoLikeCount() {
+  return this._card.querySelector(".elements__like-count");
 }
 
+alreadyLiked() {
+  return this._cardLikeButton().classList.contains("elements__heart-icon_theme_dark");
+}
 
+likeAtRender() {
+  this._cardLikeButton().classList.add("elements__heart-icon_theme_dark");
+}
 
+like(likeCount) {
+  this._cardLikeButton().classList.add("elements__heart-icon_theme_dark");
+  this._photoLikeCount().textContent = likeCount;
+}
+
+dislike(likeCount) {
+  this._cardLikeButton().classList.remove("elements__heart-icon_theme_dark");
+  this._photoLikeCount().textContent = likeCount;
+}
+
+}
 
 export default Card;
