@@ -7,6 +7,7 @@ class Card {
     this._link = data.link;
     this._handleCardClick = handleCardClick;
     this._id = data._id;
+    this._likes = data.likes;
     this._owner = data.owner._id;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
@@ -40,6 +41,7 @@ class Card {
       }
       this._card.querySelector(".elements__image").style.backgroundImage = `url(${this._link})`;
       this._card.querySelector(".elements__name").textContent = this._title;
+      this._photoLikeCount().textContent = this._likes.length;
 
       this._setEventListeners();
       this._handleLikeIcon(); //not sure I want this here...
@@ -85,7 +87,7 @@ _cardLikeButton() {
 
  this._cardLikeButton().addEventListener("click", ()=> {
     this._handleLikeClick(this.getId());
-    this._cardLikeButton().classList.toggle("elements__heart-icon_theme_dark");
+    //this._cardLikeButton().classList.toggle("elements__heart-icon_theme_dark");
  });
 }
 
